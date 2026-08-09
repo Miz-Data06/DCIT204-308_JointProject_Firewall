@@ -1,0 +1,901 @@
+requestId,source,sourceLocationId,destination,destinationLocationId,category,urgency,timeSubmitted,deadline,status
+SR001,Pizza King,LOC001,Upsa,LOC011,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR002,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR003,Papaye,LOC003,Madina,LOC013,Food Delivery,High,9:50 AM,10:25,In Transit
+SR004,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR005,Burger King,LOC005,Cantoments,LOC015,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR006,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR007,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR008,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR009,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR010,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR011,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR012,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR013,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR014,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR015,Burger King,LOC005,Adenta,LOC017,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR016,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR017,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR018,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR019,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR020,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR021,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR022,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR023,Papaye,LOC003,Adenta,LOC017,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR024,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,High,9:50 AM,10:25,In Transit
+SR025,Burger King,LOC005,Okponglo,LOC018,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR026,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR027,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR028,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR029,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR030,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR031,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR032,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR033,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR034,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR035,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR036,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR037,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR038,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR039,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR040,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR041,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR042,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR043,Papaye,LOC003,Madina,LOC013,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR044,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR045,Burger King,LOC005,Cantoments,LOC015,Food Delivery,High,9:50 AM,10:25,In Transit
+SR046,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR047,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR048,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR049,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR050,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR051,Pizza King,LOC001,Madina,LOC013,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR052,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR053,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR054,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR055,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR056,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR057,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR058,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR059,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR060,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR061,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR062,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR063,Papaye,LOC003,Adenta,LOC017,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR064,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR065,Burger King,LOC005,Okponglo,LOC018,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR066,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,High,9:50 AM,10:25,In Transit
+SR067,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR068,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR069,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR070,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR071,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR072,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR073,Papaye,LOC003,Okponglo,LOC018,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR074,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR075,Burger King,LOC005,Madina,LOC013,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR076,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR077,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR078,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR079,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR080,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR081,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR082,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR083,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR084,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR085,Burger King,LOC005,Cantoments,LOC015,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR086,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR087,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,High,9:50 AM,10:25,In Transit
+SR088,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR089,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR090,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR091,Pizza King,LOC001,Madina,LOC013,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR092,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR093,Papaye,LOC003,Cantoments,LOC015,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR094,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR095,Burger King,LOC005,Adenta,LOC017,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR096,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR097,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR098,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR099,Chez Amis,LOC009,Madina,LOC013,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR100,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR101,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR102,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR103,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR104,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR105,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR106,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR107,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR108,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,High,9:50 AM,10:25,In Transit
+SR109,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR110,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR111,Pizza King,LOC001,Adenta,LOC017,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR112,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR113,Papaye,LOC003,Okponglo,LOC018,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR114,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR115,Burger King,LOC005,Madina,LOC013,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR116,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR117,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR118,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR119,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR120,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR121,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR122,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR123,Papaye,LOC003,Madina,LOC013,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR124,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR125,Burger King,LOC005,Cantoments,LOC015,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR126,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR127,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR128,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR129,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR130,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR131,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR132,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR133,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR134,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR135,Burger King,LOC005,Adenta,LOC017,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR136,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR137,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR138,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR139,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR140,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR141,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR142,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR143,Papaye,LOC003,Adenta,LOC017,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR144,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR145,Burger King,LOC005,Okponglo,LOC018,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR146,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR147,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR148,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR149,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR150,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR151,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR152,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR153,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR154,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR155,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR156,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR157,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR158,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR159,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR160,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR161,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR162,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR163,Papaye,LOC003,Madina,LOC013,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR164,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR165,Burger King,LOC005,Cantoments,LOC015,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR166,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR167,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR168,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR169,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR170,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR171,Pizza King,LOC001,Madina,LOC013,Food Delivery,High,9:50 AM,10:25,In Transit
+SR172,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR173,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR174,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR175,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR176,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR177,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR178,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR179,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR180,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR181,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR182,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR183,Papaye,LOC003,Adenta,LOC017,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR184,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR185,Burger King,LOC005,Okponglo,LOC018,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR186,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR187,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR188,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR189,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR190,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR191,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR192,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,High,9:50 AM,10:25,In Transit
+SR193,Papaye,LOC003,Okponglo,LOC018,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR194,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR195,Burger King,LOC005,Madina,LOC013,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR196,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR197,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR198,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR199,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR200,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR201,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR202,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR203,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR204,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR205,Burger King,LOC005,Cantoments,LOC015,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR206,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR207,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR208,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR209,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR210,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR211,Pizza King,LOC001,Madina,LOC013,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR212,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR213,Papaye,LOC003,Cantoments,LOC015,Food Delivery,High,9:50 AM,10:25,In Transit
+SR214,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR215,Burger King,LOC005,Adenta,LOC017,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR216,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR217,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR218,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR219,Chez Amis,LOC009,Madina,LOC013,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR220,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR221,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR222,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR223,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR224,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR225,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR226,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR227,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR228,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR229,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR230,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR231,Pizza King,LOC001,Adenta,LOC017,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR232,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR233,Papaye,LOC003,Okponglo,LOC018,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR234,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,High,9:50 AM,10:25,In Transit
+SR235,Burger King,LOC005,Madina,LOC013,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR236,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR237,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR238,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR239,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR240,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR241,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR242,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR243,Papaye,LOC003,Madina,LOC013,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR244,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR245,Burger King,LOC005,Cantoments,LOC015,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR246,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR247,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR248,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR249,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR250,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR251,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR252,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR253,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR254,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR255,Burger King,LOC005,Adenta,LOC017,Food Delivery,High,9:50 AM,10:25,In Transit
+SR256,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR257,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR258,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR259,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR260,Three 05 Restaurant,LOC010,Haatso,LOC014,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR261,Pizza King,LOC001,Cantoments,LOC015,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR262,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR263,Papaye,LOC003,Adenta,LOC017,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR264,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR265,Burger King,LOC005,Okponglo,LOC018,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR266,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR267,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR268,Hausa Cuisine,LOC008,Haatso,LOC014,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR269,Chez Amis,LOC009,Cantoments,LOC015,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR270,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR271,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR272,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR273,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR274,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR275,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR276,Chickenman Pizzaman,LOC006,Haatso,LOC014,Food Delivery,High,9:50 AM,10:25,In Transit
+SR277,Eddys Pizza,LOC007,Cantoments,LOC015,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR278,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR279,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR280,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR281,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR282,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR283,Papaye,LOC003,Madina,LOC013,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR284,Flicks and licks,LOC004,Haatso,LOC014,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR285,Burger King,LOC005,Cantoments,LOC015,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR286,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR287,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR288,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR289,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR290,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR291,Pizza King,LOC001,Madina,LOC013,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR292,KFC East Legon,LOC002,Haatso,LOC014,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR293,Papaye,LOC003,Cantoments,LOC015,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR294,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR295,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR296,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR297,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR298,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR299,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR300,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR301,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR302,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR303,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR304,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR305,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR306,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR307,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR308,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR309,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR310,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR311,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR312,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR313,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR314,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR315,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR316,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR317,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR318,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR319,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR320,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR321,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR322,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR323,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR324,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR325,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR326,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR327,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR328,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR329,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR330,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR331,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR332,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR333,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR334,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR335,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR336,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR337,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR338,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR339,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR340,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR341,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR342,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR343,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR344,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR345,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR346,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR347,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR348,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR349,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR350,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR351,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR352,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR353,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR354,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR355,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR356,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR357,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR358,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR359,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR360,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR361,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR362,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR363,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR364,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR365,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR366,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR367,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR368,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR369,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR370,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR371,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR372,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR373,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR374,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR375,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR376,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR377,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR378,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR379,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR380,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR381,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR382,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR383,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR384,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR385,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR386,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR387,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR388,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR389,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR390,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR391,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR392,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR393,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR394,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR395,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR396,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR397,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR398,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR399,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR400,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR401,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR402,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR403,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR404,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR405,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR406,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR407,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR408,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR409,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR410,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR411,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR412,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR413,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR414,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR415,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR416,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR417,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR418,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR419,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR420,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR421,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR422,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR423,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR424,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR425,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR426,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR427,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR428,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR429,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR430,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR431,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR432,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR433,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR434,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR435,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR436,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR437,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR438,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR439,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR440,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR441,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR442,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR443,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR444,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR445,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR446,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR447,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR448,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR449,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR450,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR451,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR452,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR453,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR454,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR455,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR456,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR457,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR458,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR459,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR460,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR461,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR462,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR463,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR464,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR465,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR466,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR467,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR468,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR469,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR470,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR471,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR472,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR473,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR474,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR475,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR476,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR477,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR478,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR479,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR480,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR481,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR482,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR483,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR484,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR485,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR486,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR487,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR488,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR489,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR490,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR491,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR492,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR493,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR494,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR495,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR496,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR497,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR498,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR499,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR500,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR501,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR502,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR503,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR504,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR505,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR506,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR507,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR508,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR509,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR510,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR511,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR512,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR513,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR514,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR515,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR516,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR517,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR518,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR519,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR520,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR521,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR522,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR523,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR524,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR525,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR526,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR527,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR528,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR529,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR530,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR531,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR532,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR533,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR534,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR535,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR536,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR537,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR538,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR539,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR540,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR541,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR542,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR543,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR544,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR545,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR546,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR547,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR548,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR549,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR550,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR551,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR552,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR553,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR554,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR555,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR556,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR557,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR558,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR559,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR560,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR561,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR562,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR563,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR564,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR565,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR566,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR567,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR568,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR569,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR570,Three 05 Restaurant,LOC010,Pent Hostel,LOC016,Food Delivery,High,9:50 AM,10:25,In Transit
+SR571,Pizza King,LOC001,Adenta,LOC017,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR572,KFC East Legon,LOC002,North Legon,LOC012,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR573,Papaye,LOC003,Okponglo,LOC018,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR574,Flicks and licks,LOC004,Shiashie,LOC019,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR575,Burger King,LOC005,Madina,LOC013,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR576,Chickenman Pizzaman,LOC006,Pent Hostel,LOC016,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR577,Eddys Pizza,LOC007,Adenta,LOC017,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR578,Hausa Cuisine,LOC008,North Legon,LOC012,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR579,Chez Amis,LOC009,Okponglo,LOC018,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR580,Three 05 Restaurant,LOC010,Shiashie,LOC019,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR581,Pizza King,LOC001,Madina,LOC013,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR582,KFC East Legon,LOC002,Pent Hostel,LOC016,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR583,Papaye,LOC003,Adenta,LOC017,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR584,Flicks and licks,LOC004,North Legon,LOC012,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR585,Burger King,LOC005,Okponglo,LOC018,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR586,Chickenman Pizzaman,LOC006,Shiashie,LOC019,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR587,Eddys Pizza,LOC007,Madina,LOC013,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR588,Hausa Cuisine,LOC008,Pent Hostel,LOC016,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR589,Chez Amis,LOC009,Adenta,LOC017,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR590,Three 05 Restaurant,LOC010,North Legon,LOC012,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR591,Pizza King,LOC001,Okponglo,LOC018,Food Delivery,High,9:50 AM,10:25,In Transit
+SR592,KFC East Legon,LOC002,Shiashie,LOC019,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR593,Papaye,LOC003,Madina,LOC013,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR594,Flicks and licks,LOC004,Pent Hostel,LOC016,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR595,Burger King,LOC005,Adenta,LOC017,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR596,Chickenman Pizzaman,LOC006,North Legon,LOC012,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR597,Eddys Pizza,LOC007,Okponglo,LOC018,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR598,Hausa Cuisine,LOC008,Shiashie,LOC019,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR599,Chez Amis,LOC009,Madina,LOC013,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR600,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR601,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR602,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR603,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR604,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR605,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR606,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR607,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR608,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR609,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR610,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR611,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR612,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,9:50 AM,10:25,In Transit
+SR613,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR614,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR615,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR616,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR617,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR618,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR619,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR620,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR621,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR622,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR623,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR624,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR625,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR626,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR627,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR628,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR629,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR630,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR631,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR632,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR633,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,9:50 AM,10:25,In Transit
+SR634,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR635,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR636,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR637,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR638,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR639,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR640,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR641,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR642,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR643,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR644,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR645,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR646,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR647,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR648,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR649,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR650,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR651,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR652,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR653,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR654,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,9:50 AM,10:25,In Transit
+SR655,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR656,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR657,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR658,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR659,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR660,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR661,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR662,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR663,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR664,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR665,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR666,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR667,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR668,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR669,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR670,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR671,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR672,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR673,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR674,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR675,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,9:50 AM,10:25,In Transit
+SR676,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR677,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR678,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR679,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR680,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR681,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR682,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR683,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR684,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR685,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR686,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR687,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR688,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR689,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR690,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR691,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR692,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR693,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR694,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR695,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR696,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,9:50 AM,10:25,In Transit
+SR697,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR698,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR699,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR700,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR701,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR702,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR703,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR704,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR705,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR706,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR707,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR708,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR709,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR710,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR711,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR712,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR713,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR714,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR715,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR716,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR717,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,9:50 AM,10:25,In Transit
+SR718,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR719,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR720,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR721,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR722,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR723,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR724,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR725,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR726,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR727,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR728,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR729,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR730,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR731,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR732,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR733,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR734,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR735,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR736,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR737,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR738,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,9:50 AM,10:25,In Transit
+SR739,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR740,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR741,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR742,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR743,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR744,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR745,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR746,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR747,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR748,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR749,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR750,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR751,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR752,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR753,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR754,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR755,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR756,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR757,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR758,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR759,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,9:50 AM,10:25,In Transit
+SR760,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR761,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR762,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR763,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR764,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR765,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR766,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR767,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR768,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR769,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR770,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR771,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR772,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR773,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR774,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR775,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR776,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR777,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR778,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR779,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR780,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,9:50 AM,10:25,In Transit
+SR781,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR782,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR783,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR784,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR785,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR786,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR787,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR788,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR789,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR790,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR791,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR792,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR793,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR794,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR795,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR796,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR797,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR798,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR799,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR800,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR801,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,9:50 AM,10:25,In Transit
+SR802,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR803,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR804,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR805,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR806,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR807,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR808,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR809,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR810,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR811,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR812,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR813,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR814,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR815,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR816,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR817,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR818,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR819,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR820,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR821,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR822,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,9:50 AM,10:25,In Transit
+SR823,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR824,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR825,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR826,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR827,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR828,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR829,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR830,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR831,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR832,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR833,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR834,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR835,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR836,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR837,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR838,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR839,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR840,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR841,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR842,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR843,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,9:50 AM,10:25,In Transit
+SR844,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR845,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR846,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR847,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR848,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR849,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR850,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR851,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR852,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR853,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR854,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR855,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR856,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR857,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR858,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR859,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR860,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR861,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR862,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR863,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR864,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,9:50 AM,10:25,In Transit
+SR865,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR866,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR867,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR868,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR869,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR870,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR871,Pizza King,LOC001,Osu,LOC022,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR872,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR873,Papaye,LOC003,Agbogba,LOC020,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR874,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR875,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR876,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR877,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR878,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR879,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,High,8:30 PM,9:05 PM,In Transit
+SR880,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Low,9:00 PM,10:45 PM,Pending
+SR881,Pizza King,LOC001,Osu,LOC022,Food Delivery,Medium,9:25 PM,10:25 PM,Assigned
+SR882,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,High,10:00 PM,10:35 PM,In Transit
+SR883,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Low,8:15 AM,10:00 AM,Pending
+SR884,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,Medium,9:30 AM,10:30 AM,Assigned
+SR885,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,High,9:50 AM,10:25,In Transit
+SR886,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Low,10:25 AM,12:10 PM,Pending
+SR887,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,Medium,10:40 AM,11:40 AM,Assigned
+SR888,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,High,11:00 AM,11:35 AM,In Transit
+SR889,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Low,11:53 AM,1:38 PM,Pending
+SR890,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,Medium,12:00 PM,1:00 PM,Assigned
+SR891,Pizza King,LOC001,Osu,LOC022,Food Delivery,High,12:30 PM,1:35 PM,In Transit
+SR892,KFC East Legon,LOC002,Oxford Street,LOC023,Food Delivery,Low,1:15 PM,3:00 PM,Pending
+SR893,Papaye,LOC003,Agbogba,LOC020,Food Delivery,Medium,1:47 PM,2:47 PM,Assigned
+SR894,Flicks and licks,LOC004,Airport Residential,LOC021,Food Delivery,High,2:05 PM,2:40 PM,In Transit
+SR895,Burger King,LOC005,Tf Hostel,LOC024,Food Delivery,Low,2:36 PM,4:21 PM,Pending
+SR896,Chickenman Pizzaman,LOC006,Osu,LOC022,Food Delivery,Medium,3:40 PM,4:40 PM,Assigned
+SR897,Eddys Pizza,LOC007,Oxford Street,LOC023,Food Delivery,High,5:45 PM,6:20 PM,In Transit
+SR898,Hausa Cuisine,LOC008,Agbogba,LOC020,Food Delivery,Low,6:03 PM,7:48 PM,Pending
+SR899,Chez Amis,LOC009,Airport Residential,LOC021,Food Delivery,Medium,7:15 PM,8:15 PM,Assigned
+SR900,Three 05 Restaurant,LOC010,Tf Hostel,LOC024,Food Delivery,High,8:30 PM,9:05 PM,In Transit
