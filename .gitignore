@@ -56,4 +56,4 @@ Thumbs.db
 
 # Exported experiment data (keep source-tracked results out unless you want them versioned)
 *.csv.bak
-data/
+
