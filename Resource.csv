@@ -1,0 +1,91 @@
+resource_Id,type,homeLocation,capacity,available_Status
+RES001,Motorcycle,Madina,81,Available
+RES002,Cargo,Madina,31,Available
+RES003,Car Delivery,University of Ghana Campus,71,Available
+RES004,Cargo,Madina,48,In Use
+RES005,Cargo,Shiashie,36,Under Maintenance
+RES006,Car Delivery,Shiashie,23,Available
+RES007,Cargo,University of Ghana Campus,20,Available
+RES008,Car Delivery,Okponglo,86,Available
+RES009,Car Delivery,Kisseman,36,Available
+RES010,Car Delivery,Staff Village,91,Available
+RES011,Motorcycle,Madina,76,Available
+RES012,Motorcycle,Kisseman,75,In Use
+RES013,Car Delivery,Atomic Junction,61,Available
+RES014,Motorcycle,University of Ghana Campus,46,Available
+RES015,Car Delivery,Kisseman,66,In Use
+RES016,Cargo,Staff Village,73,Available
+RES017,Motorcycle,Christian Village,44,Under Maintenance
+RES018,Motorcycle,University of Ghana Campus,96,Available
+RES019,Cargo,Shiashie,20,Available
+RES020,Motorcycle,Kisseman,56,Available
+RES021,Car Delivery,University of Ghana Campus,78,Available
+RES022,Motorcycle,Okponglo,26,Available
+RES023,Motorcycle,Staff Village,67,In Use
+RES024,Car Delivery,Okponglo,94,Available
+RES025,Car Delivery,Christian Village,41,In Use
+RES026,Motorcycle,Shiashie,82,In Use
+RES027,Motorcycle,Madina,21,Available
+RES028,Cargo,Staff Village,94,Under Maintenance
+RES029,Car Delivery,Okponglo,34,In Use
+RES030,Car Delivery,Madina,20,Available
+RES031,Cargo,Okponglo,74,Available
+RES032,Car Delivery,Christian Village,71,Available
+RES033,Car Delivery,Okponglo,29,Available
+RES034,Car Delivery,University of Ghana Campus,68,In Use
+RES035,Cargo,Madina,47,In Use
+RES036,Cargo,Staff Village,27,Available
+RES037,Cargo,Christian Village,57,Available
+RES038,Cargo,Christian Village,87,Available
+RES039,Motorcycle,Madina,41,In Use
+RES040,Cargo,Atomic Junction,65,In Use
+RES041,Motorcycle,Atomic Junction,53,Available
+RES042,Motorcycle,Kisseman,55,In Use
+RES043,Cargo,Christian Village,88,Available
+RES044,Car Delivery,Atomic Junction,20,In Use
+RES045,Car Delivery,Atomic Junction,42,Available
+RES046,Cargo,Christian Village,54,In Use
+RES047,Cargo,Atomic Junction,45,Available
+RES048,Car Delivery,East Legon,64,In Use
+RES049,Motorcycle,University of Ghana Campus,28,In Use
+RES050,Motorcycle,East Legon,49,Available
+RES051,Cargo,Madina,97,Available
+RES052,Car Delivery,Okponglo,34,Available
+RES053,Car Delivery,Okponglo,71,Available
+RES054,Cargo,Atomic Junction,98,In Use
+RES055,Cargo,Staff Village,20,Available
+RES056,Motorcycle,Shiashie,80,In Use
+RES057,Cargo,Madina,63,In Use
+RES058,Motorcycle,East Legon,43,Available
+RES059,Car Delivery,Shiashie,93,In Use
+RES060,Motorcycle,Kisseman,24,Under Maintenance
+RES061,Motorcycle,Kisseman,51,Available
+RES062,Motorcycle,Shiashie,46,In Use
+RES063,Cargo,University of Ghana Campus,25,In Use
+RES064,Cargo,Christian Village,40,Available
+RES065,Cargo,Christian Village,78,Available
+RES066,Car Delivery,University of Ghana Campus,70,Available
+RES067,Cargo,East Legon,88,Available
+RES068,Cargo,East Legon,100,Available
+RES069,Motorcycle,Okponglo,53,Available
+RES070,Motorcycle,Kisseman,80,Available
+RES071,Cargo,East Legon,43,Under Maintenance
+RES072,Motorcycle,Madina,42,In Use
+RES073,Car Delivery,Okponglo,82,Available
+RES074,Cargo,Shiashie,24,In Use
+RES075,Cargo,Okponglo,47,Available
+RES076,Cargo,University of Ghana Campus,64,Under Maintenance
+RES077,Car Delivery,Madina,93,In Use
+RES078,Cargo,University of Ghana Campus,24,Available
+RES079,Cargo,Christian Village,93,In Use
+RES080,Cargo,Kisseman,36,In Use
+RES081,Car Delivery,Madina,40,Available
+RES082,Car Delivery,East Legon,46,Available
+RES083,Motorcycle,Christian Village,23,In Use
+RES084,Car Delivery,Kisseman,94,In Use
+RES085,Motorcycle,Christian Village,63,Available
+RES086,Motorcycle,Christian Village,38,In Use
+RES087,Car Delivery,University of Ghana Campus,32,Available
+RES088,Motorcycle,Christian Village,80,Available
+RES089,Car Delivery,Okponglo,91,In Use
+RES090,Motorcycle,East Legon,69,In Use
