@@ -1,4 +1,4 @@
-package edu.ug.arcadia.datastructures.linear;
+package com.fooddelivery.datastructures.linear;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

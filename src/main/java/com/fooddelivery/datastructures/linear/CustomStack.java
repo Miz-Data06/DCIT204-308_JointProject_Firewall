@@ -1,4 +1,4 @@
-package edu.ug.arcadia.datastructures.linear;
+package com.fooddelivery.datastructures.linear;
 
 public class CustomStack<T> {
     private final CustomLinkedList<T> elements;

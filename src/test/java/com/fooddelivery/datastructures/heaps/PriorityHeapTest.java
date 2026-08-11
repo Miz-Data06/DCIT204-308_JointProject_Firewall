@@ -1,4 +1,4 @@
-package edu.ug.arcadia.datastructures.heaps;
+package com.fooddelivery.datastructures.heaps;
 
 import org.junit.jupiter.api.Test;
 

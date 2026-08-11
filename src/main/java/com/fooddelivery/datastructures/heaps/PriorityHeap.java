@@ -1,4 +1,4 @@
-package edu.ug.arcadia.datastructures.heaps;
+package com.fooddelivery.datastructures.heaps;
 
 import java.util.Arrays;
 import java.util.NoSuchElementException;

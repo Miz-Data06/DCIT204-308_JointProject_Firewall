@@ -1,6 +1,6 @@
-package edu.ug.arcadia.datastructures.queues;
+package com.fooddelivery.datastructures.queues;
 
-import edu.ug.arcadia.datastructures.linear.CustomIterator;
+import com.fooddelivery.datastructures.linear.CustomIterator;
 
 import java.util.NoSuchElementException;
 

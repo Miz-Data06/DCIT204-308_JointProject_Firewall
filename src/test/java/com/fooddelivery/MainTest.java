@@ -1,4 +1,4 @@
-package edu.ug.arcadia;
+package com.fooddelivery;
 
 import org.junit.jupiter.api.Test;
 
