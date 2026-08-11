@@ -1,0 +1,7 @@
+package edu.ug.arcadia;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Arcadia Dispatch System");
+    }
+}
