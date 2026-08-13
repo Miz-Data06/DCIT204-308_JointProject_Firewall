@@ -1,16 +1,22 @@
 package com.fooddelivery.datastructures.queues;
 
 import com.fooddelivery.datastructures.linear.CustomIterator;
+import com.fooddelivery.model.DeliveryRequest;
+import com.fooddelivery.model.RequestStatus;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CustomDequeTest {
+    private static final LocalDateTime SUBMITTED = LocalDateTime.of(2026, 8, 13, 9, 0);
+
     @Test
     void newDequeIsEmptyWithSizeZero() {
         CustomDeque<String> deque = new CustomDeque<>();
@@ -20,341 +26,409 @@ class CustomDequeTest {
     }
 
     @Test
-    void addFirstIncreasesSize() {
+    void addFrontInsertsIntoEmptyDeque() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        deque.addFirst("first");
-        deque.addFirst("second");
+        deque.addFront("front");
 
-        assertEquals(2, deque.size());
+        assertEquals("front", deque.peekFront());
+        assertEquals("front", deque.peekRear());
+        assertEquals(1, deque.size());
         assertFalse(deque.isEmpty());
     }
 
     @Test
-    void addLastIncreasesSize() {
+    void addRearInsertsIntoEmptyDeque() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        deque.addLast("first");
-        deque.addLast("second");
+        deque.addRear("rear");
 
-        assertEquals(2, deque.size());
+        assertEquals("rear", deque.peekFront());
+        assertEquals("rear", deque.peekRear());
+        assertEquals(1, deque.size());
         assertFalse(deque.isEmpty());
     }
 
     @Test
-    void addFirstPlacesValueAtFront() {
+    void addFrontIncreasesSize() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        deque.addFirst("old");
-        deque.addFirst("new");
+        deque.addFront("first");
+        deque.addFront("second");
 
-        assertEquals("new", deque.peekFirst());
-        assertEquals("old", deque.peekLast());
-    }
-
-    @Test
-    void addLastPlacesValueAtRear() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addLast("front");
-        deque.addLast("rear");
-
-        assertEquals("front", deque.peekFirst());
-        assertEquals("rear", deque.peekLast());
-    }
-
-    @Test
-    void multipleAddFirstOperationsProduceCorrectOrder() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addFirst("c");
-        deque.addFirst("b");
-        deque.addFirst("a");
-
-        assertEquals("a", deque.removeFirst());
-        assertEquals("b", deque.removeFirst());
-        assertEquals("c", deque.removeFirst());
-    }
-
-    @Test
-    void multipleAddLastOperationsProduceCorrectOrder() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addLast("a");
-        deque.addLast("b");
-        deque.addLast("c");
-
-        assertEquals("a", deque.removeFirst());
-        assertEquals("b", deque.removeFirst());
-        assertEquals("c", deque.removeFirst());
-    }
-
-    @Test
-    void mixedAddFirstAndAddLastOperationsPreserveCorrectOrder() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addLast("b");
-        deque.addFirst("a");
-        deque.addLast("c");
-        deque.addFirst("front");
-
-        assertEquals("front", deque.removeFirst());
-        assertEquals("a", deque.removeFirst());
-        assertEquals("b", deque.removeFirst());
-        assertEquals("c", deque.removeFirst());
-    }
-
-    @Test
-    void peekFirstReturnsFrontWithoutRemovingIt() {
-        CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
-
-        assertEquals("front", deque.peekFirst());
-        assertEquals("front", deque.peekFirst());
         assertEquals(2, deque.size());
     }
 
     @Test
-    void peekLastReturnsRearWithoutRemovingIt() {
+    void addRearIncreasesSize() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
 
-        assertEquals("rear", deque.peekLast());
-        assertEquals("rear", deque.peekLast());
+        deque.addRear("first");
+        deque.addRear("second");
+
         assertEquals(2, deque.size());
     }
 
     @Test
-    void removeFirstReturnsAndRemovesFront() {
+    void addFrontRejectsNull() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
 
-        assertEquals("front", deque.removeFirst());
-
-        assertEquals("rear", deque.peekFirst());
+        assertThrows(IllegalArgumentException.class, () -> deque.addFront(null));
     }
 
     @Test
-    void removeLastReturnsAndRemovesRear() {
+    void addRearRejectsNull() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
 
-        assertEquals("rear", deque.removeLast());
-
-        assertEquals("front", deque.peekLast());
+        assertThrows(IllegalArgumentException.class, () -> deque.addRear(null));
     }
 
     @Test
-    void removeFirstDecreasesSize() {
+    void peekFrontReturnsFrontWithoutRemovingOrChangingSize() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
+        deque.addRear("front");
+        deque.addRear("rear");
 
-        deque.removeFirst();
+        assertEquals("front", deque.peekFront());
+        assertEquals("front", deque.peekFront());
+        assertEquals(2, deque.size());
+        assertEquals("front", deque.removeFront());
+    }
+
+    @Test
+    void peekRearReturnsRearWithoutRemovingOrChangingSize() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
+        assertEquals("rear", deque.peekRear());
+        assertEquals("rear", deque.peekRear());
+        assertEquals(2, deque.size());
+        assertEquals("rear", deque.removeRear());
+    }
+
+    @Test
+    void emptyPeekAndRemoveOperationsThrowNoSuchElementException() {
+        CustomDeque<String> deque = new CustomDeque<>();
+
+        assertThrows(NoSuchElementException.class, deque::peekFront);
+        assertThrows(NoSuchElementException.class, deque::peekRear);
+        assertThrows(NoSuchElementException.class, deque::removeFront);
+        assertThrows(NoSuchElementException.class, deque::removeRear);
+    }
+
+    @Test
+    void removeFrontReturnsOnlyElementAndLeavesDequeEmpty() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addFront("only");
+
+        assertEquals("only", deque.removeFront());
+
+        assertTrue(deque.isEmpty());
+        assertEquals(0, deque.size());
+        assertThrows(NoSuchElementException.class, deque::peekFront);
+        assertThrows(NoSuchElementException.class, deque::peekRear);
+    }
+
+    @Test
+    void removeRearReturnsOnlyElementAndLeavesDequeEmpty() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("only");
+
+        assertEquals("only", deque.removeRear());
+
+        assertTrue(deque.isEmpty());
+        assertEquals(0, deque.size());
+        assertThrows(NoSuchElementException.class, deque::peekFront);
+        assertThrows(NoSuchElementException.class, deque::peekRear);
+    }
+
+    @Test
+    void dequeCanBeReusedAfterRemovingOnlyElementFromFront() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("old");
+        assertEquals("old", deque.removeFront());
+
+        deque.addFront("new");
+
+        assertEquals("new", deque.peekFront());
+        assertEquals("new", deque.peekRear());
+    }
+
+    @Test
+    void dequeCanBeReusedAfterRemovingOnlyElementFromRear() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addFront("old");
+        assertEquals("old", deque.removeRear());
+
+        deque.addRear("new");
+
+        assertEquals("new", deque.peekFront());
+        assertEquals("new", deque.peekRear());
+    }
+
+    @Test
+    void removeFrontDecreasesSize() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
+        assertEquals("front", deque.removeFront());
 
         assertEquals(1, deque.size());
     }
 
     @Test
-    void removeLastDecreasesSize() {
+    void removeRearDecreasesSize() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
+        deque.addRear("front");
+        deque.addRear("rear");
 
-        deque.removeLast();
+        assertEquals("rear", deque.removeRear());
 
         assertEquals(1, deque.size());
     }
 
     @Test
-    void removingRepeatedlyFromFrontPreservesOrder() {
+    void frontInsertionOrderIsCorrect() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("a");
-        deque.addLast("b");
-        deque.addLast("c");
 
-        assertEquals("a", deque.removeFirst());
-        assertEquals("b", deque.removeFirst());
-        assertEquals("c", deque.removeFirst());
+        deque.addFront("c");
+        deque.addFront("b");
+        deque.addFront("a");
+
+        assertEquals("a", deque.removeFront());
+        assertEquals("b", deque.removeFront());
+        assertEquals("c", deque.removeFront());
     }
 
     @Test
-    void removingRepeatedlyFromRearPreservesOrder() {
+    void rearInsertionOrderIsCorrect() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("a");
-        deque.addLast("b");
-        deque.addLast("c");
 
-        assertEquals("c", deque.removeLast());
-        assertEquals("b", deque.removeLast());
-        assertEquals("a", deque.removeLast());
+        deque.addRear("a");
+        deque.addRear("b");
+        deque.addRear("c");
+
+        assertEquals("a", deque.removeFront());
+        assertEquals("b", deque.removeFront());
+        assertEquals("c", deque.removeFront());
     }
 
     @Test
-    void mixedRemovalsPreserveCorrectRemainingValues() {
+    void mixedFrontAndRearInsertionsPreserveOrder() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("a");
-        deque.addLast("b");
-        deque.addLast("c");
-        deque.addLast("d");
 
-        assertEquals("a", deque.removeFirst());
-        assertEquals("d", deque.removeLast());
+        deque.addRear("b");
+        deque.addFront("a");
+        deque.addRear("c");
+        deque.addFront("front");
 
-        assertEquals("b", deque.peekFirst());
-        assertEquals("c", deque.peekLast());
+        assertEquals("front", deque.removeFront());
+        assertEquals("a", deque.removeFront());
+        assertEquals("b", deque.removeFront());
+        assertEquals("c", deque.removeFront());
+    }
+
+    @Test
+    void mixedFrontAndRearRemovalsPreserveOrder() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("a");
+        deque.addRear("b");
+        deque.addRear("c");
+        deque.addRear("d");
+
+        assertEquals("a", deque.removeFront());
+        assertEquals("d", deque.removeRear());
+
+        assertEquals("b", deque.peekFront());
+        assertEquals("c", deque.peekRear());
         assertEquals(2, deque.size());
     }
 
     @Test
-    void removeFirstOnEmptyDequeThrowsNoSuchElementException() {
+    void addingFrontAndRemovingRearWorksCorrectly() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        assertThrows(NoSuchElementException.class, deque::removeFirst);
-    }
+        deque.addFront("c");
+        deque.addFront("b");
+        deque.addFront("a");
 
-    @Test
-    void removeLastOnEmptyDequeThrowsNoSuchElementException() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        assertThrows(NoSuchElementException.class, deque::removeLast);
-    }
-
-    @Test
-    void peekFirstOnEmptyDequeThrowsNoSuchElementException() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        assertThrows(NoSuchElementException.class, deque::peekFirst);
-    }
-
-    @Test
-    void peekLastOnEmptyDequeThrowsNoSuchElementException() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        assertThrows(NoSuchElementException.class, deque::peekLast);
-    }
-
-    @Test
-    void dequeAcceptsNullAtFront() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addFirst(null);
-
-        assertEquals(null, deque.peekFirst());
-        assertEquals(1, deque.size());
-    }
-
-    @Test
-    void dequeAcceptsNullAtRear() {
-        CustomDeque<String> deque = new CustomDeque<>();
-
-        deque.addLast(null);
-
-        assertEquals(null, deque.peekLast());
-        assertEquals(1, deque.size());
-    }
-
-    @Test
-    void nullValuesCanBePeekedAndRemovedCorrectly() {
-        CustomDeque<String> deque = new CustomDeque<>();
-        deque.addFirst(null);
-        deque.addLast("tail");
-
-        assertEquals(null, deque.peekFirst());
-        assertEquals(null, deque.removeFirst());
-        assertEquals("tail", deque.peekFirst());
-        assertEquals("tail", deque.removeLast());
+        assertEquals("c", deque.removeRear());
+        assertEquals("b", deque.removeRear());
+        assertEquals("a", deque.removeRear());
         assertTrue(deque.isEmpty());
     }
 
     @Test
-    void duplicateValuesRemainSeparateEntries() {
+    void addingRearAndRemovingFrontWorksCorrectly() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("same");
-        deque.addLast("same");
 
-        assertEquals(2, deque.size());
-        assertEquals("same", deque.removeFirst());
-        assertEquals(1, deque.size());
-        assertEquals("same", deque.removeFirst());
+        deque.addRear("a");
+        deque.addRear("b");
+        deque.addRear("c");
+
+        assertEquals("a", deque.removeFront());
+        assertEquals("b", deque.removeFront());
+        assertEquals("c", deque.removeFront());
         assertTrue(deque.isEmpty());
     }
 
     @Test
-    void removingOnlyElementWithRemoveFirstLeavesDequeEmpty() {
-        CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("only");
+    void repeatedOperationsEventuallyEmptyDeque() {
+        CustomDeque<Integer> deque = new CustomDeque<>();
 
-        assertEquals("only", deque.removeFirst());
+        for (int value = 1; value <= 5; value++) {
+            deque.addRear(value);
+        }
+
+        for (int expected = 1; expected <= 5; expected++) {
+            assertEquals(expected, deque.removeFront());
+        }
 
         assertTrue(deque.isEmpty());
         assertEquals(0, deque.size());
     }
 
     @Test
-    void removingOnlyElementWithRemoveLastLeavesDequeEmpty() {
+    void alternatingAddRemoveOperationsPreserveConsistency() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("only");
 
-        assertEquals("only", deque.removeLast());
+        deque.addFront("b");
+        deque.addRear("c");
+        assertEquals("b", deque.removeFront());
+        deque.addFront("a");
+        assertEquals("c", deque.removeRear());
+        deque.addRear("d");
 
+        assertEquals("a", deque.removeFront());
+        assertEquals("d", deque.removeFront());
         assertTrue(deque.isEmpty());
-        assertEquals(0, deque.size());
     }
 
     @Test
-    void dequeRemainsCorrectWhenAlternatingBetweenEmptyAndNonEmptyStates() {
+    void duplicateValuesAreStoredSeparatelyAndRemovedCorrectly() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        deque.addFirst("front");
-        assertEquals("front", deque.removeLast());
-        assertTrue(deque.isEmpty());
+        deque.addRear("same");
+        deque.addRear("same");
 
-        deque.addLast("rear");
-        assertEquals("rear", deque.removeFirst());
+        assertEquals(2, deque.size());
+        assertEquals("same", deque.removeFront());
+        assertEquals(1, deque.size());
+        assertEquals("same", deque.removeFront());
         assertTrue(deque.isEmpty());
-
-        deque.addFirst("again");
-        assertEquals("again", deque.peekFirst());
-        assertEquals("again", deque.peekLast());
     }
 
     @Test
-    void clearEmptiesDeque() {
+    void stringsWorkCorrectly() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("a");
-        deque.addLast("b");
+
+        deque.addFront("middle");
+        deque.addFront("front");
+        deque.addRear("rear");
+
+        assertEquals("front", deque.removeFront());
+        assertEquals("rear", deque.removeRear());
+        assertEquals("middle", deque.removeFront());
+    }
+
+    @Test
+    void deliveryRequestObjectsWorkCorrectly() {
+        CustomDeque<DeliveryRequest> deque = new CustomDeque<>();
+        DeliveryRequest first = request("REQ001", 1);
+        DeliveryRequest second = request("REQ002", 2);
+
+        deque.addRear(first);
+        deque.addRear(second);
+
+        assertSame(first, deque.removeFront());
+        assertSame(second, deque.removeFront());
+    }
+
+    @Test
+    void urgentRequestInsertedAtFrontIsRemovedBeforeNormalRearRequests() {
+        CustomDeque<DeliveryRequest> deque = new CustomDeque<>();
+        DeliveryRequest normal = request("REQ001", 1);
+        DeliveryRequest urgent = request("REQ002", 5);
+
+        deque.addRear(normal);
+        deque.addFront(urgent);
+
+        assertSame(urgent, deque.removeFront());
+        assertSame(normal, deque.removeFront());
+    }
+
+    @Test
+    void multipleUrgentRequestsFollowFrontInsertionSemantics() {
+        CustomDeque<DeliveryRequest> deque = new CustomDeque<>();
+        DeliveryRequest normal = request("REQ001", 1);
+        DeliveryRequest urgentOne = request("REQ002", 5);
+        DeliveryRequest urgentTwo = request("REQ003", 6);
+
+        deque.addRear(normal);
+        deque.addFront(urgentOne);
+        deque.addFront(urgentTwo);
+
+        assertSame(urgentTwo, deque.removeFront());
+        assertSame(urgentOne, deque.removeFront());
+        assertSame(normal, deque.removeFront());
+    }
+
+    @Test
+    void largerDeterministicSequencePreservesCorrectOrder() {
+        CustomDeque<Integer> deque = new CustomDeque<>();
+
+        for (int value = 10; value >= 1; value--) {
+            deque.addFront(value);
+        }
+        for (int value = 11; value <= 20; value++) {
+            deque.addRear(value);
+        }
+
+        for (int expected = 1; expected <= 20; expected++) {
+            assertEquals(expected, deque.removeFront());
+        }
+        assertTrue(deque.isEmpty());
+    }
+
+    @Test
+    void sizeRemainsAccurateThroughoutLongDeterministicSequence() {
+        CustomDeque<Integer> deque = new CustomDeque<>();
+
+        for (int value = 1; value <= 50; value++) {
+            deque.addRear(value);
+            assertEquals(value, deque.size());
+        }
+        for (int expectedSize = 49; expectedSize >= 0; expectedSize--) {
+            deque.removeFront();
+            assertEquals(expectedSize, deque.size());
+        }
+    }
+
+    @Test
+    void clearEmptiesDequeAndAllowsReuse() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("a");
+        deque.addRear("b");
 
         deque.clear();
 
         assertTrue(deque.isEmpty());
         assertEquals(0, deque.size());
-        assertThrows(NoSuchElementException.class, deque::peekFirst);
-    }
+        assertThrows(NoSuchElementException.class, deque::peekFront);
 
-    @Test
-    void dequeCanBeReusedAfterClear() {
-        CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("old");
-        deque.clear();
-
-        deque.addLast("new");
-
-        assertEquals(1, deque.size());
-        assertEquals("new", deque.peekFirst());
-        assertEquals("new", deque.peekLast());
+        deque.addRear("new");
+        assertEquals("new", deque.peekFront());
+        assertEquals("new", deque.peekRear());
     }
 
     @Test
     void iteratorTraversesFromFrontToRear() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("middle");
-        deque.addLast("rear");
+        deque.addRear("front");
+        deque.addRear("middle");
+        deque.addRear("rear");
 
         CustomIterator<String> iterator = deque.iterator();
 
@@ -367,9 +441,9 @@ class CustomDequeTest {
     @Test
     void iteratorReflectsMixedFrontAndRearInsertionsCorrectly() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("b");
-        deque.addFirst("a");
-        deque.addLast("c");
+        deque.addRear("b");
+        deque.addFront("a");
+        deque.addRear("c");
 
         CustomIterator<String> iterator = deque.iterator();
 
@@ -382,16 +456,16 @@ class CustomDequeTest {
     @Test
     void iteratorDoesNotModifyDeque() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("front");
-        deque.addLast("rear");
+        deque.addRear("front");
+        deque.addRear("rear");
         CustomIterator<String> iterator = deque.iterator();
 
         assertEquals("front", iterator.next());
         assertEquals("rear", iterator.next());
 
         assertEquals(2, deque.size());
-        assertEquals("front", deque.peekFirst());
-        assertEquals("rear", deque.peekLast());
+        assertEquals("front", deque.peekFront());
+        assertEquals("rear", deque.peekRear());
     }
 
     @Test
@@ -405,7 +479,7 @@ class CustomDequeTest {
     @Test
     void iteratorNextAfterExhaustionThrowsNoSuchElementException() {
         CustomDeque<String> deque = new CustomDeque<>();
-        deque.addLast("only");
+        deque.addRear("only");
         CustomIterator<String> iterator = deque.iterator();
 
         assertEquals("only", iterator.next());
@@ -414,29 +488,97 @@ class CustomDequeTest {
     }
 
     @Test
-    void longerMixedSequencePreservesFrontRearSizeAndOrder() {
+    @SuppressWarnings("deprecation")
+    void addFirstBehavesIdenticallyToAddFront() {
         CustomDeque<String> deque = new CustomDeque<>();
 
-        deque.addLast("c");
-        deque.addFirst("b");
-        deque.addLast("d");
-        deque.addFirst("a");
-        assertEquals(4, deque.size());
-        assertEquals("a", deque.peekFirst());
-        assertEquals("d", deque.peekLast());
+        deque.addFirst("old-front");
+        deque.addFirst("new-front");
 
-        assertEquals("a", deque.removeFirst());
-        assertEquals("d", deque.removeLast());
-        deque.addLast("e");
-        deque.addFirst("front");
+        assertEquals("new-front", deque.peekFront());
+        assertEquals("old-front", deque.peekRear());
+    }
 
-        assertEquals(4, deque.size());
-        assertEquals("front", deque.peekFirst());
-        assertEquals("e", deque.peekLast());
+    @Test
+    @SuppressWarnings("deprecation")
+    void addLastBehavesIdenticallyToAddRear() {
+        CustomDeque<String> deque = new CustomDeque<>();
+
+        deque.addLast("front");
+        deque.addLast("rear");
+
+        assertEquals("front", deque.peekFront());
+        assertEquals("rear", deque.peekRear());
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    void removeFirstBehavesIdenticallyToRemoveFront() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
         assertEquals("front", deque.removeFirst());
-        assertEquals("b", deque.removeFirst());
-        assertEquals("c", deque.removeFirst());
-        assertEquals("e", deque.removeFirst());
-        assertTrue(deque.isEmpty());
+        assertEquals("rear", deque.peekFront());
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    void removeLastBehavesIdenticallyToRemoveRear() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
+        assertEquals("rear", deque.removeLast());
+        assertEquals("front", deque.peekRear());
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    void peekFirstBehavesIdenticallyToPeekFront() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
+        assertEquals(deque.peekFront(), deque.peekFirst());
+        assertEquals(2, deque.size());
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    void peekLastBehavesIdenticallyToPeekRear() {
+        CustomDeque<String> deque = new CustomDeque<>();
+        deque.addRear("front");
+        deque.addRear("rear");
+
+        assertEquals(deque.peekRear(), deque.peekLast());
+        assertEquals(2, deque.size());
+    }
+
+    @Test
+    @SuppressWarnings("deprecation")
+    void compatibilityAliasesPreserveExceptionBehaviour() {
+        CustomDeque<String> deque = new CustomDeque<>();
+
+        assertThrows(IllegalArgumentException.class, () -> deque.addFirst(null));
+        assertThrows(IllegalArgumentException.class, () -> deque.addLast(null));
+        assertThrows(NoSuchElementException.class, deque::removeFirst);
+        assertThrows(NoSuchElementException.class, deque::removeLast);
+        assertThrows(NoSuchElementException.class, deque::peekFirst);
+        assertThrows(NoSuchElementException.class, deque::peekLast);
+    }
+
+    private static DeliveryRequest request(String requestId, int urgency) {
+        return new DeliveryRequest(
+                requestId,
+                "LOC001",
+                "LOC002",
+                "Food Delivery",
+                urgency,
+                1.0,
+                SUBMITTED,
+                SUBMITTED.plusHours(1),
+                RequestStatus.PENDING,
+                0.0);
     }
 }
