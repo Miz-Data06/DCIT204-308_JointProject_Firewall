@@ -230,18 +230,61 @@ class CustomLinkedListTest {
     }
 
     @Test
-    void invalidIndexesThrowExpectedExceptions() {
+    void invalidIndexesThrowIllegalArgumentException() {
         CustomLinkedList<String> list = new CustomLinkedList<>();
         list.addLast("only");
 
-        assertThrows(IndexOutOfBoundsException.class, () -> list.get(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.get(1));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.set(-1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.set(1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.insert(-1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.insert(2, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> list.remove(1));
+        assertThrows(IllegalArgumentException.class, () -> list.get(-1));
+        assertThrows(IllegalArgumentException.class, () -> list.get(1));
+        assertThrows(IllegalArgumentException.class, () -> list.get(2));
+        assertThrows(IllegalArgumentException.class, () -> list.get(Integer.MIN_VALUE));
+        assertThrows(IllegalArgumentException.class, () -> list.get(Integer.MAX_VALUE));
+        assertThrows(IllegalArgumentException.class, () -> list.set(-1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> list.set(1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> list.set(2, "value"));
+        assertThrows(IllegalArgumentException.class, () -> list.insert(-1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> list.insert(2, "value"));
+        assertThrows(IllegalArgumentException.class, () -> list.remove(-1));
+        assertThrows(IllegalArgumentException.class, () -> list.remove(1));
+        assertThrows(IllegalArgumentException.class, () -> list.remove(2));
+    }
+
+    @Test
+    void invalidIndexExceptionMessageIncludesIndexAndSize() {
+        CustomLinkedList<String> list = new CustomLinkedList<>();
+        list.addLast("only");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> list.get(2));
+
+        assertTrue(exception.getMessage().contains("2"));
+        assertTrue(exception.getMessage().contains("1"));
+    }
+
+    @Test
+    void failedIndexedOperationsKeepContentsSizeOrderHeadAndTailUnchanged() {
+        CustomLinkedList<String> list = new CustomLinkedList<>();
+        list.addLast("first");
+        list.addLast("second");
+
+        assertThrows(IllegalArgumentException.class, () -> list.get(-1));
+        assertListContents(list, "first", "second");
+        assertEquals("first", list.peekFirst());
+        assertEquals("second", list.peekLast());
+
+        assertThrows(IllegalArgumentException.class, () -> list.set(2, "changed"));
+        assertListContents(list, "first", "second");
+        assertEquals("first", list.peekFirst());
+        assertEquals("second", list.peekLast());
+
+        assertThrows(IllegalArgumentException.class, () -> list.remove(3));
+        assertListContents(list, "first", "second");
+        assertEquals("first", list.peekFirst());
+        assertEquals("second", list.peekLast());
+
+        assertThrows(IllegalArgumentException.class, () -> list.insert(3, "third"));
+        assertListContents(list, "first", "second");
+        assertEquals("first", list.peekFirst());
+        assertEquals("second", list.peekLast());
     }
 
     @Test
@@ -354,5 +397,12 @@ class CustomLinkedListTest {
 
         assertFalse(list.removeValue("missing"));
         assertEquals(1, list.size());
+    }
+
+    private static void assertListContents(CustomLinkedList<String> list, String... expectedValues) {
+        assertEquals(expectedValues.length, list.size());
+        for (int i = 0; i < expectedValues.length; i++) {
+            assertEquals(expectedValues[i], list.get(i));
+        }
     }
 }

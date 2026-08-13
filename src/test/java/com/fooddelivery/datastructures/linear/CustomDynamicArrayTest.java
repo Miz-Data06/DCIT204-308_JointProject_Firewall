@@ -166,18 +166,58 @@ class CustomDynamicArrayTest {
     }
 
     @Test
-    void invalidIndexesThrowExpectedExceptions() {
+    void invalidIndexesThrowIllegalArgumentException() {
         CustomDynamicArray<String> array = new CustomDynamicArray<>();
         array.add("only");
 
-        assertThrows(IndexOutOfBoundsException.class, () -> array.get(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.get(1));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.set(-1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.set(1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.insert(-1, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.insert(2, "value"));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.remove(-1));
-        assertThrows(IndexOutOfBoundsException.class, () -> array.remove(1));
+        assertThrows(IllegalArgumentException.class, () -> array.get(-1));
+        assertThrows(IllegalArgumentException.class, () -> array.get(1));
+        assertThrows(IllegalArgumentException.class, () -> array.get(2));
+        assertThrows(IllegalArgumentException.class, () -> array.get(Integer.MIN_VALUE));
+        assertThrows(IllegalArgumentException.class, () -> array.get(Integer.MAX_VALUE));
+        assertThrows(IllegalArgumentException.class, () -> array.set(-1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> array.set(1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> array.set(2, "value"));
+        assertThrows(IllegalArgumentException.class, () -> array.insert(-1, "value"));
+        assertThrows(IllegalArgumentException.class, () -> array.insert(2, "value"));
+        assertThrows(IllegalArgumentException.class, () -> array.remove(-1));
+        assertThrows(IllegalArgumentException.class, () -> array.remove(1));
+        assertThrows(IllegalArgumentException.class, () -> array.remove(2));
+    }
+
+    @Test
+    void invalidIndexExceptionMessageIncludesIndexAndSize() {
+        CustomDynamicArray<String> array = new CustomDynamicArray<>();
+        array.add("only");
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> array.get(2));
+
+        assertTrue(exception.getMessage().contains("2"));
+        assertTrue(exception.getMessage().contains("1"));
+    }
+
+    @Test
+    void failedIndexedOperationsKeepContentsSizeAndCapacityUnchanged() {
+        CustomDynamicArray<String> array = new CustomDynamicArray<>(4);
+        array.add("first");
+        array.add("second");
+        int capacityBeforeFailure = array.capacity();
+
+        assertThrows(IllegalArgumentException.class, () -> array.get(-1));
+        assertArrayContents(array, "first", "second");
+        assertEquals(capacityBeforeFailure, array.capacity());
+
+        assertThrows(IllegalArgumentException.class, () -> array.set(2, "changed"));
+        assertArrayContents(array, "first", "second");
+        assertEquals(capacityBeforeFailure, array.capacity());
+
+        assertThrows(IllegalArgumentException.class, () -> array.remove(3));
+        assertArrayContents(array, "first", "second");
+        assertEquals(capacityBeforeFailure, array.capacity());
+
+        assertThrows(IllegalArgumentException.class, () -> array.insert(3, "third"));
+        assertArrayContents(array, "first", "second");
+        assertEquals(capacityBeforeFailure, array.capacity());
     }
 
     @Test
@@ -272,5 +312,12 @@ class CustomDynamicArrayTest {
 
         assertEquals("keep", iterator.next());
         assertFalse(iterator.hasNext());
+    }
+
+    private static void assertArrayContents(CustomDynamicArray<String> array, String... expectedValues) {
+        assertEquals(expectedValues.length, array.size());
+        for (int i = 0; i < expectedValues.length; i++) {
+            assertEquals(expectedValues[i], array.get(i));
+        }
     }
 }

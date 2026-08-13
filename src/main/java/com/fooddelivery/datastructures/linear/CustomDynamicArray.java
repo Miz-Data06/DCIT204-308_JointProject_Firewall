@@ -142,13 +142,13 @@ public class CustomDynamicArray<T> {
 
     private void validateElementIndex(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for size " + size + ".");
+            throw new IllegalArgumentException("Index out of bounds: " + index + ", size: " + size);
         }
     }
 
     private void validateInsertIndex(int index) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Index " + index + " out of bounds for insert size " + size + ".");
+            throw new IllegalArgumentException("Invalid insertion index: " + index + ", size: " + size);
         }
     }
 }
