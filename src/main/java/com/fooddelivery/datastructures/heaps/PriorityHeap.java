@@ -1,90 +1,155 @@
 package com.fooddelivery.datastructures.heaps;
 
-import java.util.Arrays;
+import com.fooddelivery.datastructures.linear.CustomDynamicArray;
+import com.fooddelivery.model.DeliveryRequest;
+import com.fooddelivery.model.RequestStatus;
+
 import java.util.NoSuchElementException;
-import java.util.Objects;
 
-public class PriorityHeap<T extends Comparable<? super T>> {
-    private static final int DEFAULT_CAPACITY = 10;
+/**
+ * Binary max-heap for dispatching delivery requests by project priority rules.
+ *
+ * <p>The heap establishes order when a request is inserted. If a stored request's
+ * priority score or status is changed in a way that affects dispatch decisions,
+ * remove the request and reinsert it so the heap can restore its invariant.</p>
+ */
+public class PriorityHeap {
+    private final CustomDynamicArray<DeliveryRequest> requests;
 
-    private T[] elements;
-    private int size;
-
+    /**
+     * Creates an empty heap using the default CustomDynamicArray capacity.
+     */
     public PriorityHeap() {
-        this(DEFAULT_CAPACITY);
+        requests = new CustomDynamicArray<>();
     }
 
-    @SuppressWarnings("unchecked")
+    /**
+     * Creates an empty heap using the provided CustomDynamicArray initial capacity.
+     *
+     * @param initialCapacity the starting capacity; must be greater than zero
+     * @throws IllegalArgumentException if initialCapacity is zero or negative
+     */
     public PriorityHeap(int initialCapacity) {
-        if (initialCapacity <= 0) {
-            throw new IllegalArgumentException("Initial capacity must be greater than 0.");
-        }
-
-        elements = (T[]) new Comparable[initialCapacity];
-        size = 0;
+        requests = new CustomDynamicArray<>(initialCapacity);
     }
 
-    public void add(T value) {
-        Objects.requireNonNull(value, "Value cannot be null.");
-        ensureCapacityForOneMore();
+    /**
+     * Inserts a dispatchable request in O(log n), excluding occasional dynamic-array resize.
+     *
+     * @param request the request to insert
+     * @throws IllegalArgumentException if request is null, cancelled or delivered
+     */
+    public void insert(DeliveryRequest request) {
+        validateInsertable(request);
 
-        elements[size] = value;
-        siftUp(size);
-        size++;
+        requests.add(request);
+        heapifyUp(requests.size() - 1);
     }
 
-    public T peek() {
+    /**
+     * Returns the next request to dispatch in O(1).
+     *
+     * @return the highest-priority request
+     * @throws NoSuchElementException if the heap is empty
+     */
+    public DeliveryRequest peekMax() {
         if (isEmpty()) {
             throw new NoSuchElementException("Heap is empty.");
         }
 
-        return elements[0];
+        return requests.get(0);
     }
 
-    public T remove() {
+    /**
+     * Removes and returns the next request to dispatch in O(log n).
+     *
+     * @return the highest-priority request
+     * @throws NoSuchElementException if the heap is empty
+     */
+    public DeliveryRequest extractMax() {
         if (isEmpty()) {
             throw new NoSuchElementException("Heap is empty.");
         }
 
-        T removedValue = elements[0];
-        size--;
+        DeliveryRequest maximumRequest = requests.get(0);
+        DeliveryRequest lastRequest = requests.remove(requests.size() - 1);
 
-        if (size == 0) {
-            elements[0] = null;
-            return removedValue;
+        if (!isEmpty()) {
+            requests.set(0, lastRequest);
+            heapifyDown(0);
         }
 
-        elements[0] = elements[size];
-        elements[size] = null;
-        siftDown(0);
-        return removedValue;
+        return maximumRequest;
     }
 
-    public int size() {
-        return size;
-    }
-
-    public int capacity() {
-        return elements.length;
-    }
-
+    /**
+     * Returns true when no requests are stored in O(1).
+     */
     public boolean isEmpty() {
-        return size == 0;
+        return requests.isEmpty();
     }
 
+    /**
+     * Returns the number of stored requests in O(1).
+     */
+    public int size() {
+        return requests.size();
+    }
+
+    /**
+     * Returns the current CustomDynamicArray capacity in O(1).
+     */
+    public int capacity() {
+        return requests.capacity();
+    }
+
+    /**
+     * Removes all heap entries in O(n) while preserving current capacity.
+     */
     public void clear() {
-        for (int i = 0; i < size; i++) {
-            elements[i] = null;
+        requests.clear();
+    }
+
+    /**
+     * @deprecated use {@link #insert(DeliveryRequest)}.
+     */
+    @Deprecated
+    public void add(DeliveryRequest request) {
+        insert(request);
+    }
+
+    /**
+     * @deprecated use {@link #peekMax()}.
+     */
+    @Deprecated
+    public DeliveryRequest peek() {
+        return peekMax();
+    }
+
+    /**
+     * @deprecated use {@link #extractMax()}.
+     */
+    @Deprecated
+    public DeliveryRequest remove() {
+        return extractMax();
+    }
+
+    private void validateInsertable(DeliveryRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("Request cannot be null.");
         }
 
-        size = 0;
+        RequestStatus status = request.getStatus();
+        if (status == RequestStatus.CANCELLED || status == RequestStatus.DELIVERED) {
+            throw new IllegalArgumentException("Cancelled and delivered requests cannot be inserted.");
+        }
     }
 
-    private void siftUp(int index) {
+    private void heapifyUp(int index) {
         int childIndex = index;
         while (childIndex > 0) {
             int parentIndex = (childIndex - 1) / 2;
-            if (elements[childIndex].compareTo(elements[parentIndex]) >= 0) {
+            if (!hasHigherPriority(requests.get(childIndex), requests.get(parentIndex))) {
                 return;
             }
 
@@ -93,56 +158,50 @@ public class PriorityHeap<T extends Comparable<? super T>> {
         }
     }
 
-    private void siftDown(int index) {
+    private void heapifyDown(int index) {
         int parentIndex = index;
-        while (true) {
-            int leftChildIndex = (2 * parentIndex) + 1;
-            int rightChildIndex = (2 * parentIndex) + 2;
-            int smallerChildIndex = parentIndex;
-
-            if (leftChildIndex < size
-                    && elements[leftChildIndex].compareTo(elements[smallerChildIndex]) < 0) {
-                smallerChildIndex = leftChildIndex;
-            }
-
-            if (rightChildIndex < size
-                    && elements[rightChildIndex].compareTo(elements[smallerChildIndex]) < 0) {
-                smallerChildIndex = rightChildIndex;
-            }
-
-            if (smallerChildIndex == parentIndex) {
+        while (parentIndex >= 0 && parentIndex < requests.size()) {
+            int leftChildIndex = (parentIndex * 2) + 1;
+            if (leftChildIndex < 0 || leftChildIndex >= requests.size()) {
                 return;
             }
 
-            swap(parentIndex, smallerChildIndex);
-            parentIndex = smallerChildIndex;
-        }
-    }
-
-    private void ensureCapacityForOneMore() {
-        if (size < elements.length) {
-            return;
-        }
-
-        int newCapacity = calculateNewCapacity();
-        elements = Arrays.copyOf(elements, newCapacity);
-    }
-
-    private int calculateNewCapacity() {
-        if (elements.length > Integer.MAX_VALUE / 2) {
-            if (elements.length == Integer.MAX_VALUE) {
-                throw new OutOfMemoryError("Heap backing array cannot grow further.");
+            int higherPriorityChildIndex = leftChildIndex;
+            int rightChildIndex = leftChildIndex + 1;
+            if (rightChildIndex > 0
+                    && rightChildIndex < requests.size()
+                    && hasHigherPriority(requests.get(rightChildIndex), requests.get(leftChildIndex))) {
+                higherPriorityChildIndex = rightChildIndex;
             }
 
-            return Integer.MAX_VALUE;
+            if (!hasHigherPriority(requests.get(higherPriorityChildIndex), requests.get(parentIndex))) {
+                return;
+            }
+
+            swap(parentIndex, higherPriorityChildIndex);
+            parentIndex = higherPriorityChildIndex;
+        }
+    }
+
+    private boolean hasHigherPriority(DeliveryRequest first, DeliveryRequest second) {
+        int scoreComparison = Double.compare(first.getPriorityScore(), second.getPriorityScore());
+        if (scoreComparison != 0) {
+            return scoreComparison > 0;
         }
 
-        return elements.length * 2;
+        if (first.getTimeSubmitted().isBefore(second.getTimeSubmitted())) {
+            return true;
+        }
+        if (first.getTimeSubmitted().isAfter(second.getTimeSubmitted())) {
+            return false;
+        }
+
+        return first.getRequestId().compareTo(second.getRequestId()) < 0;
     }
 
     private void swap(int firstIndex, int secondIndex) {
-        T temporary = elements[firstIndex];
-        elements[firstIndex] = elements[secondIndex];
-        elements[secondIndex] = temporary;
+        DeliveryRequest first = requests.get(firstIndex);
+        requests.set(firstIndex, requests.get(secondIndex));
+        requests.set(secondIndex, first);
     }
 }
