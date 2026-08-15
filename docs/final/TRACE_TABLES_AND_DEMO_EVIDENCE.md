@@ -37,19 +37,19 @@ This shows the dataset road graph is connected from the selected start location.
 - Reachable: `true`
 - Path: `LOC073 -> LOC076`
 - Total distance: `1.68 km`
-- Total effective travel time: `17.00`
+- Total effective travel time: `6.80`
 - Relaxation steps recorded: `8`
 
 Example relaxation:
 
-`current=LOC073, neighbour=LOC076, tentative=17.00, updated=true`
+`current=LOC073, neighbour=LOC076, tentative=6.80, updated=true`
 
 ## MST Evidence
 
 | Algorithm | Total effective cost | Selected roads | Components |
 |---|---:|---:|---:|
-| Prim | 2248.00 | 149 | 1 |
-| Kruskal | 2248.00 | 149 | 1 |
+| Prim | 1177.18 | 149 | 1 |
+| Kruskal | 1177.18 | 149 | 1 |
 
 Prim selected edge sample includes `ROAD130: LOC001 <-> LOC074, effective=2.40`. Kruskal selected edge sample includes `ROAD168: LOC049 <-> LOC019, effective=1.20`. Both algorithms produce the same total cost, which is useful evidence that the MST implementation is consistent.
 
@@ -80,7 +80,7 @@ Useful output highlights:
 - `Locations=150, roads=300, requests=900, riders=90`
 - `Search SR001 found=true, operations=1`
 - `BFS visited=150, start=LOC001`
-- `Dijkstra LOC073 -> LOC076: reachable=true, effectiveTime=17.0, pathNodes=2`
+- `Dijkstra LOC073 -> LOC076: reachable=true, effectiveTime=6.8, pathNodes=2`
 - `Prim selectedRoads=149, components=1`
 - `DP selectedRequests=5, totalPriority=3.2606209150326793`
 - `Invalid option. Choose 1-8.`

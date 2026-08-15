@@ -90,7 +90,7 @@ Select `5`.
 Expected highlight:
 
 ```text
-Dijkstra LOC073 -> LOC076: reachable=true, effectiveTime=17.0, pathNodes=2
+Dijkstra LOC073 -> LOC076: reachable=true, effectiveTime=6.8, pathNodes=2
 ```
 
 Explain that Dijkstra uses effective travel time, not only physical distance.

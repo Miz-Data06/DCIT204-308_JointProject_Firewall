@@ -20,12 +20,12 @@
 
 ## Dataset
 
-- [x] `Locations.csv` present.
-- [x] `Roads_Edges.csv` present.
-- [x] `Service Request.csv` present.
-- [x] `Resource.csv` present.
-- [x] `algorithm_Runs.csv` present.
-- [x] `audit_Events.csv` present.
+- [x] `locations.csv` present.
+- [x] `roads.csv` present.
+- [x] `service_requests.csv` present.
+- [x] `resources.csv` present.
+- [x] `algorithm_runs.csv` present.
+- [x] `audit_events.csv` present.
 - [x] Core import counts verified: 150 locations, 300 roads, 900 requests, 90 riders/resources.
 
 ## Database

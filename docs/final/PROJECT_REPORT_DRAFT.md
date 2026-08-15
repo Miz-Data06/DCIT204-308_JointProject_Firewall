@@ -35,7 +35,7 @@ Food delivery operations need to manage service locations, roads, requests, ride
 
 The system represents a delivery network as locations connected by roads. Roads have normal travel time and road-condition weights, so routing and network algorithms use effective travel time:
 
-`normalTravelTimeMinutes * roadConditionWeight`
+`baseTravelTimeMinutes * roadConditionMultiplier`
 
 Delivery requests include source and destination locations, urgency, status, submission time, deadline, and priority. Riders have a current location, vehicle type, carrying capacity, and availability.
 
@@ -43,28 +43,28 @@ Delivery requests include source and destination locations, urgency, status, sub
 
 | File | Rows | Purpose |
 |---|---:|---|
-| `Locations.csv` | 150 | Delivery locations and coordinates |
-| `Roads_Edges.csv` | 300 | Road connections and travel weights |
-| `Service Request.csv` | 900 | Delivery request records |
-| `Resource.csv` | 90 | Rider/resource records |
-| `algorithm_Runs.csv` | 90 | Experiment/audit support data |
-| `audit_Events.csv` | 150 | Audit support data |
+| `locations.csv` | 150 | Delivery locations and coordinates |
+| `roads.csv` | 300 | Road connections, road condition labels, and travel multipliers |
+| `service_requests.csv` | 900 | Delivery request records |
+| `resources.csv` | 90 | Rider/resource records |
+| `algorithm_runs.csv` | 60 | Filtered performance support rows for implemented algorithms |
+| `audit_events.csv` | 0 | Header-only audit support file; no app-generated audit history was invented |
 
 The four core CSVs loaded into models are locations, roads, service requests, and resources. The two audit/experiment CSV files are documented as support data and were not required for the main console workflow.
 
 ## Data Cleaning and Mapping Decisions
 
-- `Locations.csv` maps directly to `Location`.
-- `Roads_Edges.csv` does not contain a road ID, so stable road IDs are generated as `ROAD001`, `ROAD002`, and so on.
+- `locations.csv` maps directly to `Location`.
+- `roads.csv` contains stable road IDs as `ROAD001`, `ROAD002`, and so on.
 - `distance` maps to `distanceKm`.
-- `travel_Time` maps to `normalTravelTimeMinutes`.
-- `roadConditionWeight` maps directly.
+- `base_travel_time_minutes` maps to normal travel time.
+- `road_condition_multiplier` maps to the road condition multiplier used by routing and MST algorithms.
 - `Low`, `Medium`, and `High` urgency values map to `1`, `2`, and `3`.
 - Request times use the fixed synthetic date `2026-01-01`. If a deadline time is earlier than submitted time, it is treated as the next day.
 - `In Transit` maps to `RequestStatus.PICKED_UP`.
 - Request capacity defaults to `1.0` because the CSV does not include capacity and category values do not imply size.
 - Priority score is computed deterministically using existing priority scoring and normalized urgency/deadline/waiting proxies.
-- `Resource.csv` maps `resource_Id` to `riderId`.
+- `resources.csv` maps `resource_id` to `riderId`.
 - Rider names are generated as `Rider {resource_Id}`.
 - `homeLocation` is a location name and is resolved to `locationId`.
 - `Available` maps to `true`; `In Use` and `Under Maintenance` map to `false`.
@@ -149,8 +149,8 @@ Highlights:
 - Linear search `SR001`: found in 1 operation
 - Binary search `SR450`: found at index 449 in 1 operation
 - BFS and DFS from `LOC001`: both visited 150 locations
-- Dijkstra `LOC073 -> LOC076`: reachable, path `LOC073 -> LOC076`, effective time 17.00
-- Prim and Kruskal: both selected 149 roads, 1 component, total effective cost 2248.00
+- Dijkstra `LOC073 -> LOC076`: reachable, path `LOC073 -> LOC076`, effective time 6.80
+- Prim and Kruskal: both selected 149 roads, 1 component, total effective cost 1177.18
 - Dynamic programming request selection: 5 selected requests, total priority 3.2606
 - Greedy assignment: assigned rider `RES006`
 - Priority scoring sample: 0.732843137254902
@@ -197,7 +197,7 @@ Highlights:
 - Add a richer dispatch workflow with request status updates.
 - Add optional filtering by area, vehicle type, or rider availability.
 - Add a GUI or web front end if required later.
-- Integrate `algorithm_Runs.csv` and `audit_Events.csv` into a formal audit/report module.
+- Extend `algorithm_runs.csv` and `audit_events.csv` into a formal audit/report module when app-generated experiment history is required.
 
 ## Conclusion
 
