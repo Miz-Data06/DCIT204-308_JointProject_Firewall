@@ -1,0 +1,17 @@
+Dijkstra fastest route evidence
+source=LOC073
+destination=LOC076
+reachable=true
+path=LOC073 -> LOC076
+totalDistanceKm=1.68
+totalEffectiveTravelTime=17.00
+relaxationSteps=8
+relaxation sample:
+- current=LOC073, neighbour=LOC025, tentative=35.10, updated=true
+- current=LOC073, neighbour=LOC032, tentative=27.30, updated=true
+- current=LOC073, neighbour=LOC076, tentative=17.00, updated=true
+- current=LOC073, neighbour=LOC135, tentative=10.50, updated=true
+- current=LOC135, neighbour=LOC070, tentative=20.70, updated=true
+- current=LOC135, neighbour=LOC076, tentative=38.50, updated=false
+- current=LOC135, neighbour=LOC105, tentative=56.90, updated=true
+- current=LOC135, neighbour=LOC113, tentative=22.10, updated=true

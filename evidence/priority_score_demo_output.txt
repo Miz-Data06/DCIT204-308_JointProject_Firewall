@@ -1,0 +1,8 @@
+Priority scoring evidence
+approvedUrgencyWeight=58/204=0.28431372549019607
+approvedDeadlineWeight=74/204=0.3627450980392157
+approvedWaitingWeight=72/204=0.35294117647058826
+weightsSumToOne=true
+sampleInputs: urgency=1.0, deadline=0.75, waiting=0.5
+sampleScore=0.732843137254902
+contributions: urgency=0.28431372549019607, deadline=0.27205882352941174, waiting=0.17647058823529413

@@ -1,0 +1,5 @@
+Optimization evidence
+Brute force first 5 capacity 3.0: selected=SR002(priority=0.5237), SR003(priority=0.7211), SR005(priority=0.5408), totalPriority=1.7857, states=32
+Dynamic programming first 10 capacity 5.0: selected=SR003(priority=0.7211), SR005(priority=0.5408), SR006(priority=0.7383), SR008(priority=0.5605), SR009(priority=0.6999), totalPriority=3.2606, states=5511
+Greedy assignment first dataset request: assigned=true, rider=RES006, pickupTime=38.80
+Greedy counterexample: firstRequest=REQ-1, greedyTotal=6.0, betterTotal=4.0, demonstratesFailure=true

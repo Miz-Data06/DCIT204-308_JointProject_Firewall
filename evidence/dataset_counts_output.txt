@@ -1,0 +1,7 @@
+Dataset import counts
+locations=150
+roads=300
+deliveryRequests=900
+ridersResources=90
+graphVertices=150
+graphEdges=300
