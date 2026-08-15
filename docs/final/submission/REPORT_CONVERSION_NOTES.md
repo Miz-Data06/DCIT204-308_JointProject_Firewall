@@ -21,9 +21,13 @@ Manual conversion needed:
 3. Export or save as PDF using the required lecturer format.
 4. Name the exported file `Food_Delivery_System_Final_Report.pdf`.
 
+Confirmed submission details:
+
+- Team name: Firewall.
+- Repository or submitted ZIP name: DCIT204-308_JointProject_Firewall.
+- Repository URL: https://github.com/Miz-Data06/DCIT204-308_JointProject_Firewall.git
+
 Before submission, manually confirm:
 
-- Team name.
-- Repository or submitted ZIP name.
 - Student name spelling and capitalization.
 - Any lecturer-specific cover page, font, spacing, or declaration format.

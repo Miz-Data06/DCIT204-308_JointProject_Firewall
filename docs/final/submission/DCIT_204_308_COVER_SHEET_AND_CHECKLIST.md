@@ -4,13 +4,14 @@
 
 | Field | Value |
 |---|---|
-| Team name | TO CONFIRM |
+| Team name | Firewall |
 | Selected Ghana context | Food delivery in Greater Accra, Ghana |
 | Organisation/problem modelled | A food delivery service that manages locations, roads, riders, delivery requests, routing, request prioritisation, and dispatch decisions |
 | Database used | SQLite through JDBC |
 | Programming language/version | Java 17 |
 | Total records in dataset | Locations: 150; Roads: 300; Delivery requests: 900; Riders/resources: 90; core operational records total: 1,440; algorithm_runs.csv: 60 filtered implemented-algorithm rows; audit_events.csv: 0 header-only rows; official CSV row total: 1,500 |
-| Repository or submitted ZIP name | TO CONFIRM |
+| Repository or submitted ZIP name | DCIT204-308_JointProject_Firewall |
+| Repository URL | https://github.com/Miz-Data06/DCIT204-308_JointProject_Firewall.git |
 
 ## Student List
 
@@ -44,7 +45,7 @@
 | Correctness tests and trace tables | [x] | `src/test/java/com/fooddelivery/`; `docs/final/TRACE_TABLES_AND_DEMO_EVIDENCE.md`; `evidence/*.txt` |
 | Performance CSV and graphs | [x] | `data/algorithm_runs.csv`; `docs/final/submission/PERFORMANCE_ANALYSIS.md`; `docs/final/submission/performance_graphs/` |
 | Technical report | [x] | `docs/final/PROJECT_REPORT_DRAFT.md`; `docs/final/submission/Food_Delivery_System_Final_Report.docx`; `docs/final/submission/REPORT_CONVERSION_NOTES.md` |
-| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/final/submission/DEMO_SLIDES_OUTLINE.md`; recording to be completed manually |
+| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/final/submission/DEMO_SLIDES_OUTLINE.md`; To be prepared and presented by the team during final defense. |
 
 ## Repository Verification Snapshot
 
@@ -52,7 +53,7 @@
 |---|---|
 | Branch before artifact generation | `feature/application-integration` |
 | Starting HEAD | `9134965 docs: add final project documentation package` |
-| Baseline tests | `mvn test` passed with 511 tests |
-| Baseline package | `mvn package` passed with 511 tests |
+| Final tests | `mvn clean test` passed with 513 tests |
+| Final package | `mvn package` passed with 513 tests |
 | Whitespace check | `git diff --check` passed |
 | Generated DB/JAR/target files tracked | None found |

@@ -4,10 +4,12 @@
 
 **Project title:** Food Delivery System  
 **Course context:** DCIT 204/308 Joint Semester Project  
+**Team name:** Firewall
+**Repository:** https://github.com/Miz-Data06/DCIT204-308_JointProject_Firewall.git
 **Package name:** `com.fooddelivery`  
 **Main language and tools:** Java 17, Maven, JUnit 5, SQLite JDBC  
 **Final implementation branch:** `feature/application-integration`  
-**Final evidence commit before documentation:** `065972b docs: add demo evidence outputs`
+**Final evidence commit before submission finalization:** `6b1746b docs: update final evidence for official dataset schema`
 
 Project brief and handoff files were not found locally apart from the README. Where a required detail was not available in the provided local materials, this report marks it as **Not specified in provided brief/handoff**.
 

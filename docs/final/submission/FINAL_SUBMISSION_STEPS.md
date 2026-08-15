@@ -2,16 +2,15 @@
 
 ## Manual Review
 
-- Confirm team name.
-- Confirm repository or submitted ZIP name.
 - Confirm all student names and IDs.
 - Check lecturer formatting rules for the cover sheet, report, and slides.
 - Review the DOCX report formatting and export it to PDF if required.
-- Record or prepare the actual demo video/oral defense.
+- To be prepared and presented by the team during final defense.
 
 ## Files to Submit
 
-- Source repository or lecturer-required ZIP.
+- Source repository: `https://github.com/Miz-Data06/DCIT204-308_JointProject_Firewall.git`
+- Repository or ZIP name: `DCIT204-308_JointProject_Firewall`
 - `docs/final/submission/DCIT_204_308_COVER_SHEET_AND_CHECKLIST.md`
 - `docs/final/submission/DATA_DICTIONARY.md`
 - `docs/final/submission/PERFORMANCE_ANALYSIS.md`
@@ -41,7 +40,7 @@ mvn package
 git diff --check
 ```
 
-Expected result: 511 tests pass, package succeeds, and whitespace check succeeds.
+Expected result: 513 tests pass, package succeeds, and whitespace check succeeds.
 
 ## Demo Steps
 
@@ -60,7 +59,7 @@ Expected result: 511 tests pass, package succeeds, and whitespace check succeeds
 
 - Check `git status` before final submission.
 - Do not include generated database files, generated jars, `target/`, temporary scripts, or cache folders.
-- Push only when the group is ready and the lecturer submission rules allow it.
+- Push the completed `feature/application-integration` branch to `origin` when the group is ready and the lecturer submission rules allow it.
 
 ## ZIP Reminder
 
