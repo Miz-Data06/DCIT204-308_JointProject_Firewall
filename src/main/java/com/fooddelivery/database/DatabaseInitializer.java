@@ -21,6 +21,8 @@ public class DatabaseInitializer {
             statement.execute(DatabaseSchema.CREATE_ROADS);
             statement.execute(DatabaseSchema.CREATE_RIDERS);
             statement.execute(DatabaseSchema.CREATE_DELIVERY_REQUESTS);
+            statement.execute(DatabaseSchema.CREATE_ALGORITHM_RUNS);
+            statement.execute(DatabaseSchema.CREATE_AUDIT_EVENTS);
         } catch (SQLException exception) {
             throw new IllegalStateException("Could not initialize database schema", exception);
         }
