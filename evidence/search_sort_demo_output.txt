@@ -1,0 +1,7 @@
+Search/sort evidence
+Linear search SR001: found=true, index=0, operations=1
+Binary search SR450: found=true, index=449, operations=1
+Binary trace sample:
+- low=0, high=899, mid=449, middleRequestId=SR450, comparison=0
+QuickSort first 20 by priority desc: operations=69
+Top sorted requests: SR018(priority=0.8780), SR015(priority=0.8376), SR012(priority=0.7836), SR006(priority=0.7383), SR003(priority=0.7211)

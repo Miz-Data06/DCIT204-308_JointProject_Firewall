@@ -1,0 +1,33 @@
+MST evidence
+Prim totalEffectiveCost=1177.18, selectedRoads=149, components=1
+Prim selected edge sample:
+- ROAD130: LOC001 <-> LOC074, effective=2.40
+- ROAD136: LOC074 <-> LOC119, effective=8.90
+- ROAD133: LOC103 <-> LOC119, effective=3.20
+- ROAD189: LOC103 <-> LOC080, effective=2.40
+- ROAD186: LOC031 <-> LOC080, effective=2.64
+- ROAD267: LOC119 <-> LOC107, effective=5.00
+- ROAD209: LOC107 <-> LOC134, effective=1.43
+- ROAD048: LOC134 <-> LOC129, effective=1.50
+Prim trace sample:
+- ROAD130: LOC001 <-> LOC074, cost=2.40, selected=true, reason=frontier edge selected
+- ROAD136: LOC074 <-> LOC119, cost=8.90, selected=true, reason=frontier edge selected
+- ROAD133: LOC103 <-> LOC119, cost=3.20, selected=true, reason=frontier edge selected
+- ROAD189: LOC080 <-> LOC103, cost=2.40, selected=true, reason=frontier edge selected
+- ROAD186: LOC031 <-> LOC080, cost=2.64, selected=true, reason=frontier edge selected
+Kruskal totalEffectiveCost=1177.18, selectedRoads=149, components=1
+Kruskal selected edge sample:
+- ROAD168: LOC049 <-> LOC019, effective=0.66
+- ROAD051: LOC021 <-> LOC096, effective=0.88
+- ROAD171: LOC025 <-> LOC112, effective=1.10
+- ROAD206: LOC051 <-> LOC052, effective=1.43
+- ROAD209: LOC107 <-> LOC134, effective=1.43
+- ROAD274: LOC025 <-> LOC132, effective=1.50
+- ROAD081: LOC049 <-> LOC048, effective=1.50
+- ROAD048: LOC134 <-> LOC129, effective=1.50
+Kruskal trace sample:
+- ROAD168: LOC019 <-> LOC049, cost=0.66, selected=true, reason=accepted by union
+- ROAD051: LOC021 <-> LOC096, cost=0.88, selected=true, reason=accepted by union
+- ROAD171: LOC025 <-> LOC112, cost=1.10, selected=true, reason=accepted by union
+- ROAD206: LOC051 <-> LOC052, cost=1.43, selected=true, reason=accepted by union
+- ROAD209: LOC107 <-> LOC134, cost=1.43, selected=true, reason=accepted by union
