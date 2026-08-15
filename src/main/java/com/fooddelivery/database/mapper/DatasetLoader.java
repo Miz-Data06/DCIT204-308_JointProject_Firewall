@@ -26,11 +26,11 @@ public class DatasetLoader {
         if (dataDirectory == null) {
             throw new IllegalArgumentException("Data directory must not be null");
         }
-        CustomDynamicArray<Location> locations = loadLocations(dataDirectory.resolve("Locations.csv"));
+        CustomDynamicArray<Location> locations = loadLocations(resolve(dataDirectory, "locations.csv", "Locations.csv"));
         CustomMap<String, String> locationIdByName = locationIdByName(locations);
-        CustomDynamicArray<Road> roads = loadRoads(dataDirectory.resolve("Roads_Edges.csv"));
-        CustomDynamicArray<DeliveryRequest> requests = loadRequests(dataDirectory.resolve("Service Request.csv"));
-        CustomDynamicArray<Rider> riders = loadRiders(dataDirectory.resolve("Resource.csv"), locationIdByName);
+        CustomDynamicArray<Road> roads = loadRoads(resolve(dataDirectory, "roads.csv", "Roads_Edges.csv"));
+        CustomDynamicArray<DeliveryRequest> requests = loadRequests(resolve(dataDirectory, "service_requests.csv", "Service Request.csv"));
+        CustomDynamicArray<Rider> riders = loadRiders(resolve(dataDirectory, "resources.csv", "Resource.csv"), locationIdByName);
         return new DatasetLoadResult(locations, roads, requests, riders);
     }
 
@@ -81,5 +81,10 @@ public class DatasetLoader {
             lookup.put(location.getName(), location.getLocationId());
         }
         return lookup;
+    }
+
+    private static Path resolve(Path dataDirectory, String preferredFileName, String fallbackFileName) {
+        Path preferred = dataDirectory.resolve(preferredFileName);
+        return java.nio.file.Files.exists(preferred) ? preferred : dataDirectory.resolve(fallbackFileName);
     }
 }

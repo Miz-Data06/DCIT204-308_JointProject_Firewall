@@ -8,12 +8,24 @@ public class RoadCsvMapper {
         if (rowIndex <= 0) {
             throw new IllegalArgumentException("Road row index must be positive");
         }
+        String roadId = record.hasHeader("road_id") ? record.get("road_id") : null;
+        if (roadId == null || roadId.isBlank()) {
+            roadId = String.format("ROAD%03d", rowIndex);
+        }
         return new Road(
-                String.format("ROAD%03d", rowIndex),
-                LocationCsvMapper.required(record, "fromLocationId"),
-                LocationCsvMapper.required(record, "toLocationId"),
-                LocationCsvMapper.parseDouble(record, "distance"),
-                LocationCsvMapper.parseDouble(record, "travel_Time"),
-                LocationCsvMapper.parseDouble(record, "roadConditionWeight"));
+                roadId,
+                LocationCsvMapper.required(record, "from_location_id", "fromLocationId"),
+                LocationCsvMapper.required(record, "to_location_id", "toLocationId"),
+                LocationCsvMapper.parseDouble(record, "distance_km", "distance"),
+                LocationCsvMapper.parseDouble(record, "base_travel_time_minutes", "travel_Time"),
+                roadConditionMultiplier(record));
+    }
+
+    private static double roadConditionMultiplier(CsvRecord record) {
+        String multiplier = record.hasHeader("road_condition_multiplier") ? record.get("road_condition_multiplier") : null;
+        if (multiplier != null && !multiplier.isBlank()) {
+            return Double.parseDouble(multiplier);
+        }
+        return LocationCsvMapper.parseDouble(record, "roadConditionWeight");
     }
 }

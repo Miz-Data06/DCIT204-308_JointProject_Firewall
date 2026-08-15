@@ -23,6 +23,15 @@ public final class CsvRecord {
         throw new IllegalArgumentException("Missing CSV header: " + header);
     }
 
+    public boolean hasHeader(String header) {
+        for (String current : headers) {
+            if (current.equals(header)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public int rowNumber() {
         return rowNumber;
     }
