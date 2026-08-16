@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firewall Food Delivery DSA Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar" aria-label="Demo navigation">
+      <div class="brand">
+        <span class="brand-mark">FD</span>
+        <div>
+          <strong>Firewall</strong>
+          <span>Food Delivery DSA</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#overview" class="nav-link active">Overview</a>
+        <a href="#datasets" class="nav-link">Datasets</a>
+        <a href="#database" class="nav-link">Database</a>
+        <a href="#structures" class="nav-link">Data Structures</a>
+        <a href="#algorithms" class="nav-link">Algorithms</a>
+        <a href="#evidence" class="nav-link">Evidence</a>
+        <a href="#script" class="nav-link">Defense Script</a>
+      </nav>
+      <div class="sidebar-note">
+        Optional visual demo. The Java console app remains the official runnable system.
+      </div>
+    </aside>
+
+    <main>
+      <section id="overview" class="section hero-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Greater Accra food delivery operations</p>
+          <h1>Food Delivery DSA Project Dashboard</h1>
+          <p class="lead">A lightweight static presentation demo for the completed Java 17, SQLite/JDBC, custom data structure, and algorithm implementation.</p>
+        </div>
+
+        <div class="meta-grid">
+          <article class="info-tile">
+            <span>Team</span>
+            <strong>Firewall</strong>
+          </article>
+          <article class="info-tile">
+            <span>Context</span>
+            <strong>Food delivery in Greater Accra, Ghana</strong>
+          </article>
+          <article class="info-tile">
+            <span>Database</span>
+            <strong>SQLite through JDBC</strong>
+          </article>
+          <article class="info-tile">
+            <span>Language</span>
+            <strong>Java 17</strong>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="card counts-card">
+            <div class="card-header">
+              <h2>Dataset Counts</h2>
+              <span>Official normalized files</span>
+            </div>
+            <div id="countBars" class="bar-list" aria-label="Dataset counts chart"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h2>Project Snapshot</h2>
+              <span>Submission evidence</span>
+            </div>
+            <dl class="snapshot-list">
+              <div><dt>Tests</dt><dd>513 passing</dd></div>
+              <div><dt>Dijkstra route</dt><dd>LOC073 to LOC076, effective time 6.80</dd></div>
+              <div><dt>MST</dt><dd>Prim and Kruskal selected 149 roads</dd></div>
+              <div><dt>Priority score</dt><dd>Sample score 0.732843137254902</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section id="datasets" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Data layer</p>
+          <h2>Official Datasets</h2>
+          <p>These CSV files support routing, request selection, dispatch, performance evidence, and audit structure.</p>
+        </div>
+        <div id="datasetGrid" class="table-grid"></div>
+      </section>
+
+      <section id="database" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Persistence</p>
+          <h2>SQLite/JDBC Database</h2>
+          <p>The Java app imports operational CSV data into SQLite with JDBC repositories and prepared statements.</p>
+        </div>
+        <div class="card table-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Table</th>
+                <th>Primary key</th>
+                <th>Foreign keys / role</th>
+              </tr>
+            </thead>
+            <tbody id="databaseRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="structures" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Custom implementation</p>
+          <h2>Data Structures</h2>
+          <p>Use the filter to quickly find how each custom structure supports the food delivery workflow.</p>
+        </div>
+        <div class="filter-row">
+          <label for="structureSearch">Filter structures</label>
+          <input id="structureSearch" type="search" placeholder="Search by name or use case">
+        </div>
+        <div id="structureGrid" class="item-grid"></div>
+      </section>
+
+      <section id="algorithms" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Algorithms</p>
+          <h2>Implemented Algorithms</h2>
+          <p>All listed algorithms are implemented in the Java project and demonstrated with project data or tests.</p>
+        </div>
+        <div class="filter-row">
+          <label for="algorithmSearch">Filter algorithms</label>
+          <input id="algorithmSearch" type="search" placeholder="Search by algorithm or workflow">
+        </div>
+        <div id="algorithmGrid" class="item-grid algorithm-grid"></div>
+      </section>
+
+      <section id="evidence" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Committed evidence</p>
+          <h2>Results and Performance</h2>
+          <p>Values here come from the committed evidence files and generated performance graphs.</p>
+        </div>
+        <div class="evidence-grid">
+          <article class="card result-card">
+            <h3>Dijkstra Fastest Route</h3>
+            <p><strong>LOC073 -> LOC076</strong></p>
+            <p>Reachable path with total distance 1.68 km and effective travel time <strong>6.80</strong>.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Minimum Spanning Tree</h3>
+            <p>Prim and Kruskal both selected <strong>149 roads</strong> with total effective cost <strong>1177.18</strong>.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Testing</h3>
+            <p><strong>513 tests</strong> passed with no failures, errors, or skipped tests.</p>
+          </article>
+          <article class="card result-card">
+            <h3>Priority Scoring</h3>
+            <p>Approved weights: urgency 58/204, deadline 74/204, waiting 72/204. Sample score: <strong>0.732843137254902</strong>.</p>
+          </article>
+        </div>
+
+        <div class="graph-grid">
+          <figure class="graph-card">
+            <img src="assets/performance_graphs/runtime_by_algorithm.png" alt="Runtime by algorithm and input size">
+            <figcaption>Runtime by algorithm and input size</figcaption>
+          </figure>
+          <figure class="graph-card">
+            <img src="assets/performance_graphs/memory_by_algorithm.png" alt="Memory by algorithm and input size">
+            <figcaption>Memory by algorithm and input size</figcaption>
+          </figure>
+          <figure class="graph-card">
+            <img src="assets/performance_graphs/average_runtime.png" alt="Average runtime per algorithm">
+            <figcaption>Average runtime per algorithm</figcaption>
+          </figure>
+          <figure class="graph-card">
+            <img src="assets/performance_graphs/average_memory.png" alt="Average memory per algorithm">
+            <figcaption>Average memory per algorithm</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="script" class="section">
+        <div class="section-heading compact">
+          <p class="eyebrow">Oral defense helper</p>
+          <h2>What To Say</h2>
+          <p>This short script keeps the presentation focused and reminds the audience that the console app is the official runnable demo.</p>
+        </div>
+        <div class="script-grid">
+          <article class="card script-step">
+            <span>1</span>
+            <h3>Explain the dataset</h3>
+            <p>Show the six normalized CSV files and explain that locations and roads form the delivery network while requests and riders drive dispatch decisions.</p>
+          </article>
+          <article class="card script-step">
+            <span>2</span>
+            <h3>Explain the database</h3>
+            <p>Describe SQLite through JDBC, primary keys, foreign keys, and prepared statements for safe inserts and reads.</p>
+          </article>
+          <article class="card script-step">
+            <span>3</span>
+            <h3>Explain one structure</h3>
+            <p>Use the adjacency list graph as the example: locations are vertices, roads are weighted edges, and routing algorithms run on that graph.</p>
+          </article>
+          <article class="card script-step">
+            <span>4</span>
+            <h3>Explain one algorithm</h3>
+            <p>Use Dijkstra: it finds the fastest route by effective travel time, including road condition multipliers.</p>
+          </article>
+          <article class="card script-step">
+            <span>5</span>
+            <h3>Explain tests and evidence</h3>
+            <p>Mention 513 passing tests, the Dijkstra result, MST result, priority score sample, and performance graphs.</p>
+          </article>
+          <article class="card script-step">
+            <span>6</span>
+            <h3>Close with scope</h3>
+            <p>This page is an optional visual aid. The Java console application remains the official runnable system for assessment.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
