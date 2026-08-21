@@ -44,16 +44,14 @@ Expected result: 513 tests pass, package succeeds, and whitespace check succeeds
 
 ## Demo Steps
 
-1. Start the console application.
-2. Load/import the dataset.
-3. Show dataset counts.
-4. Run search and sort demos.
-5. Run BFS/DFS traversal demo.
-6. Run Dijkstra fastest route demo.
-7. Run Prim and Kruskal MST demo.
-8. Run request optimisation and rider assignment demo.
-9. Run priority scoring demo.
-10. Exit the application cleanly.
+1. Start the GUI/application experience.
+2. Place or request a delivery.
+3. Show the system handling the request.
+4. View the route or result output.
+5. Assign a rider/resource.
+6. Show dataset-backed information such as locations, roads, requests, or riders.
+7. Explain at a high level that custom data structures and algorithms support the visible workflow.
+8. Use the console workflow only as a technical fallback if the GUI is unavailable.
 
 ## Git and Push Reminder
 

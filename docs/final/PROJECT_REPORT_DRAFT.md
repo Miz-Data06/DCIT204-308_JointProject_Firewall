@@ -15,7 +15,7 @@ Project brief and handoff files were not found locally apart from the README. Wh
 
 ## Project Overview
 
-The Food Delivery System is a Java-based service operations platform for handling delivery locations, roads, riders, delivery requests, database import, and algorithm demonstrations. It combines custom data structures, graph algorithms, request optimization algorithms, CSV dataset loading, a SQLite JDBC database layer, and a console workflow.
+The Food Delivery System is a Java-based service operations platform for handling delivery locations, roads, riders, delivery requests, database import, and application-driven demonstrations. It combines custom data structures, graph algorithms, request optimization algorithms, CSV dataset loading, a SQLite JDBC database layer, and a console fallback workflow.
 
 The final system loads the dataset, imports it into SQLite, builds a custom weighted road graph, and runs demonstrations such as searching, sorting, BFS/DFS traversal, Dijkstra fastest routing, Prim and Kruskal MST, request selection, greedy rider assignment, and priority scoring.
 
@@ -198,12 +198,12 @@ Highlights:
 - Add report-ready exports for algorithm traces.
 - Add a richer dispatch workflow with request status updates.
 - Add optional filtering by area, vehicle type, or rider availability.
-- Add a GUI or web front end if required later.
+- Extend the GUI/application experience with richer reporting, authentication, and deployment packaging if required later.
 - Extend `algorithm_runs.csv` and `audit_events.csv` into a formal audit/report module when app-generated experiment history is required.
 
 ## Conclusion
 
-The Food Delivery System successfully combines custom data structures, algorithms, dataset mapping, JDBC storage, integration services, and a console demonstration workflow. Final validation shows that all tests pass and the real dataset can be loaded, imported, converted into a graph, and used for algorithm demonstrations.
+The Food Delivery System successfully combines custom data structures, algorithms, dataset mapping, JDBC storage, integration services, and application demonstration workflows. Final validation shows that all tests pass and the real dataset can be loaded, imported, converted into a graph, and used for route, assignment, and result demonstrations.
 
 ## Team Member Table
 

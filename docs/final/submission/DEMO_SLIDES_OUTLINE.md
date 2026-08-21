@@ -16,7 +16,7 @@ Locations: 150. Roads: 300. Delivery requests: 900. Riders/resources: 90. Core o
 
 ## Slide 4: System Architecture
 
-Models represent domain entities. Custom data structures support storage and operations. Algorithms perform search, sorting, graph routing, MST, priority scoring, and optimisation. JDBC imports CSV data into SQLite. The console menu demonstrates the workflows.
+Models represent domain entities. Custom data structures support storage and operations. Algorithms support routing, prioritisation, and assignment. JDBC imports CSV data into SQLite. The GUI/application flow demonstrates the main user experience.
 
 ## Slide 5: Custom Data Structures
 
@@ -30,9 +30,9 @@ Linear search, binary search, selection sort, insertion sort, merge sort, quicks
 
 SQLite is used through JDBC. CSV files are parsed, mapped, validated, imported, and queried through repository classes.
 
-## Slide 8: Console Demo Workflow
+## Slide 8: GUI/Application Demo Workflow
 
-Load dataset and database, run search/sort demos, run traversal/routing demos, run MST demos, run optimisation demos, run priority scoring demo, and exit cleanly.
+Place a delivery request, view request handling, inspect the route or result, assign a rider/resource, and show dataset-backed information. Keep the console workflow available as a technical fallback.
 
 ## Slide 9: Sample Results and Traces
 
@@ -40,11 +40,11 @@ Use evidence files under `evidence/`: 150 BFS/DFS visits, Dijkstra sample path, 
 
 ## Slide 10: Testing and Validation
 
-`mvn test` passed with 511 tests. `mvn package` passed. `git diff --check` passed. Evidence outputs were captured for demos.
+`mvn test` passed with 513 tests. `mvn package` passed. `git diff --check` passed. Evidence outputs were captured for demos.
 
 ## Slide 11: Limitations and Future Improvements
 
-The project is a console-based academic prototype. Future work can add a GUI, live traffic data, authentication, richer reporting, and real deployment packaging.
+Future work can add live traffic data, authentication, richer reporting, and real deployment packaging.
 
 ## Slide 12: Closing
 
