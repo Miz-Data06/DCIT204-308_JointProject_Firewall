@@ -62,6 +62,27 @@ class GuiApplicationServiceTest {
         assertEquals("GUI002", second.getRequestId());
     }
 
+    @Test
+    void exposesRouteNodeLabelsForVisualization() {
+        GuiApplicationService service = new GuiApplicationService(smallDataset());
+
+        GuiOrderResult result = service.placeOrder("LOC001", "LOC003", "Food Delivery", "HIGH", "1.0");
+
+        assertEquals(2, result.getRouteNodeLabels().size());
+        assertTrue(result.getRouteNodeLabels().get(0).contains("Restaurant A"));
+        assertTrue(result.getRouteNodeLabels().get(1).contains("Campus C"));
+    }
+
+    @Test
+    void findsDatasetBackedSampleRoute() {
+        GuiApplicationService service = new GuiApplicationService(smallDataset());
+
+        GuiSampleRoute sample = service.findSampleRoute().orElseThrow();
+
+        assertEquals("LOC001", sample.getSourceLocationId());
+        assertEquals("LOC002", sample.getDestinationLocationId());
+    }
+
     private static DatasetLoadResult smallDataset() {
         CustomDynamicArray<Location> locations = new CustomDynamicArray<>();
         locations.add(new Location("LOC001", "Restaurant A", "Area", LocationType.RESTAURANT, 5.0, -0.1));

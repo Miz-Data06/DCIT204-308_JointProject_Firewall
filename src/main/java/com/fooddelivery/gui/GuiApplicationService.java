@@ -15,11 +15,13 @@ import com.fooddelivery.model.Location;
 import com.fooddelivery.model.LocationType;
 import com.fooddelivery.model.RequestStatus;
 import com.fooddelivery.model.Rider;
+import com.fooddelivery.model.Road;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 public class GuiApplicationService {
     private final DatasetLoadResult dataset;
@@ -64,13 +66,47 @@ public class GuiApplicationService {
         return Collections.unmodifiableList(recentRequests);
     }
 
+    public int getLocationCount() {
+        return dataset.getLocations().size();
+    }
+
+    public int getRoadCount() {
+        return dataset.getRoads().size();
+    }
+
+    public int getRequestCount() {
+        return dataset.getDeliveryRequests().size();
+    }
+
+    public int getResourceCount() {
+        return dataset.getRiders().size();
+    }
+
     public String getSystemSummary() {
-        return "Locations: " + dataset.getLocations().size()
-                + "\nRoads: " + dataset.getRoads().size()
-                + "\nService requests: " + dataset.getDeliveryRequests().size()
-                + "\nResources: " + dataset.getRiders().size()
+        return "Locations: " + getLocationCount()
+                + "\nRoads: " + getRoadCount()
+                + "\nService requests: " + getRequestCount()
+                + "\nResources: " + getResourceCount()
                 + "\nDatabase status: dataset loaded from project data; SQLite/JDBC integration remains available"
-                + "\nCore Maven test suite: 517 passing tests with GUI service coverage";
+                + "\nCore Maven test suite: 519 passing tests with GUI service coverage";
+    }
+
+    public Optional<GuiSampleRoute> findSampleRoute() {
+        if (graph.containsVertex("LOC001") && graph.containsVertex("LOC002")
+                && new DijkstraFastestRoute().findRoute(graph, "LOC001", "LOC002").isReachable()) {
+            return Optional.of(new GuiSampleRoute("LOC001", "LOC002"));
+        }
+        CustomDynamicArray<Road> roads = dataset.getRoads();
+        for (int i = 0; i < roads.size(); i++) {
+            Road road = roads.get(i);
+            if (graph.containsVertex(road.getFromLocationId())
+                    && graph.containsVertex(road.getToLocationId())
+                    && new DijkstraFastestRoute().findRoute(
+                            graph, road.getFromLocationId(), road.getToLocationId()).isReachable()) {
+                return Optional.of(new GuiSampleRoute(road.getFromLocationId(), road.getToLocationId()));
+            }
+        }
+        return Optional.empty();
     }
 
     public GuiOrderResult placeOrder(
@@ -143,6 +179,7 @@ public class GuiApplicationService {
                 request.getPriorityScore(),
                 routeAvailable,
                 routeAvailable ? formatPath(route.getPath()) : "Route unavailable",
+                routeAvailable ? routeLabels(route.getPath()) : List.of(),
                 routeAvailable ? route.getTotalEffectiveTime() : Double.NaN,
                 riderAssigned,
                 riderAssigned ? labelForRider(assignment.getSelectedRider()) : "No rider/resource assigned",
@@ -227,5 +264,16 @@ public class GuiApplicationService {
             builder.append(labelForLocation(path.get(i)));
         }
         return builder.toString();
+    }
+
+    private List<String> routeLabels(CustomDynamicArray<String> path) {
+        List<String> labels = new ArrayList<>();
+        if (path == null) {
+            return labels;
+        }
+        for (int i = 0; i < path.size(); i++) {
+            labels.add(labelForLocation(path.get(i)));
+        }
+        return labels;
     }
 }

@@ -2,6 +2,10 @@ package com.fooddelivery.gui;
 
 import com.fooddelivery.model.RequestStatus;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public final class GuiOrderResult {
     private final String requestId;
     private final String sourceLabel;
@@ -13,6 +17,7 @@ public final class GuiOrderResult {
     private final double priorityScore;
     private final boolean routeAvailable;
     private final String routePath;
+    private final List<String> routeNodeLabels;
     private final double effectiveTravelTime;
     private final boolean riderAssigned;
     private final String assignedRiderLabel;
@@ -29,6 +34,7 @@ public final class GuiOrderResult {
             double priorityScore,
             boolean routeAvailable,
             String routePath,
+            List<String> routeNodeLabels,
             double effectiveTravelTime,
             boolean riderAssigned,
             String assignedRiderLabel,
@@ -43,6 +49,9 @@ public final class GuiOrderResult {
         this.priorityScore = priorityScore;
         this.routeAvailable = routeAvailable;
         this.routePath = routePath;
+        this.routeNodeLabels = routeNodeLabels == null
+                ? List.of()
+                : Collections.unmodifiableList(new ArrayList<>(routeNodeLabels));
         this.effectiveTravelTime = effectiveTravelTime;
         this.riderAssigned = riderAssigned;
         this.assignedRiderLabel = assignedRiderLabel;
@@ -87,6 +96,10 @@ public final class GuiOrderResult {
 
     public String getRoutePath() {
         return routePath;
+    }
+
+    public List<String> getRouteNodeLabels() {
+        return routeNodeLabels;
     }
 
     public double getEffectiveTravelTime() {

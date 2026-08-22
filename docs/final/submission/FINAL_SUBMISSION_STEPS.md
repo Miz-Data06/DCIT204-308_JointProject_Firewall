@@ -48,7 +48,7 @@ mvn package
 git diff --check
 ```
 
-Expected result: 517 tests pass, package succeeds, and whitespace check succeeds.
+Expected result: 519 tests pass, package succeeds, and whitespace check succeeds.
 
 ## Demo Steps
 

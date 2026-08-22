@@ -8,7 +8,7 @@ A Java-based Ghana-localized service operations platform with custom data struct
 mvn exec:java "-Dexec.mainClass=com.fooddelivery.gui.FoodDeliveryGuiApp"
 ```
 
-The Swing GUI is the visual presentation demo. It loads the project dataset, lets the team place a delivery request, shows the fastest route/result, attempts rider/resource assignment, and displays simple system summary counts.
+The Swing GUI is the visual presentation demo. It loads the project dataset, lets the team place a delivery request, shows the fastest route/result with a route diagram, attempts rider/resource assignment, and displays simple system summary counts.
 
 ## Console Fallback
 

@@ -53,7 +53,7 @@
 |---|---|
 | Branch before artifact generation | `feature/application-integration` |
 | Starting HEAD | `9134965 docs: add final project documentation package` |
-| Final tests | `mvn clean test` passed with 517 tests |
-| Final package | `mvn package` passed with 517 tests |
+| Final tests | `mvn clean test` passed with 519 tests |
+| Final package | `mvn package` passed with 519 tests |
 | Whitespace check | `git diff --check` passed |
 | Generated DB/JAR/target files tracked | None found |
