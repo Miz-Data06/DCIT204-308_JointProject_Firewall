@@ -40,7 +40,7 @@ Use evidence files under `evidence/`: 150 BFS/DFS visits, Dijkstra sample path, 
 
 ## Slide 10: Testing and Validation
 
-`mvn test` passed with 513 tests. `mvn package` passed. `git diff --check` passed. Evidence outputs were captured for demos.
+`mvn test` passed with 517 tests. `mvn package` passed. `git diff --check` passed. Evidence outputs were captured for demos.
 
 ## Slide 11: Limitations and Future Improvements
 

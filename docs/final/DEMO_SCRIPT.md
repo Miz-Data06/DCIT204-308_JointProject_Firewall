@@ -27,6 +27,12 @@ Use the GUI/application experience as the main presentation path:
 
 Keep the technical explanation high level: the system uses custom structures for storing delivery data, graph algorithms for route and road-network decisions, and optimization logic for request/rider decisions.
 
+Run the GUI with:
+
+```powershell
+mvn exec:java "-Dexec.mainClass=com.fooddelivery.gui.FoodDeliveryGuiApp"
+```
+
 ## Console Fallback
 
 If the GUI is unavailable during presentation, use Maven:
@@ -175,7 +181,7 @@ The database is recreated from CSV files and schema code. Generated files are bu
 The core data structures and algorithms use the project custom structures. Standard Java APIs are used only where suitable for language features, JDBC, paths, dates, tests, and small helper tasks.
 
 **What was the final test result?**  
-513 tests passed with no failures, errors, or skipped tests.
+517 tests passed with no failures, errors, or skipped tests.
 
 **What is still missing?**  
 The code and evidence are ready. Any extra school-specific report template or contribution declaration was not specified in provided local brief/handoff files.

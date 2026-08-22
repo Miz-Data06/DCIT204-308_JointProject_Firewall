@@ -26,11 +26,19 @@
 From the project root:
 
 ```powershell
+mvn exec:java "-Dexec.mainClass=com.fooddelivery.gui.FoodDeliveryGuiApp"
+```
+
+The GUI is the preferred visual demo.
+
+Console fallback:
+
+```powershell
 mvn clean package
 java -jar target/food-delivery-system-1.0-SNAPSHOT.jar
 ```
 
-If running directly through Maven or an IDE, use `com.fooddelivery.Main`.
+If running the console directly through Maven or an IDE, use `com.fooddelivery.Main`.
 
 ## Maven Verification Commands
 
@@ -40,7 +48,7 @@ mvn package
 git diff --check
 ```
 
-Expected result: 513 tests pass, package succeeds, and whitespace check succeeds.
+Expected result: 517 tests pass, package succeeds, and whitespace check succeeds.
 
 ## Demo Steps
 
