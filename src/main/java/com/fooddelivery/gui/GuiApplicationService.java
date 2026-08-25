@@ -66,6 +66,44 @@ public class GuiApplicationService {
         return Collections.unmodifiableList(recentRequests);
     }
 
+    public List<DeliveryRequest> getDatasetRequests() {
+        List<DeliveryRequest> requests = new ArrayList<>();
+        CustomDynamicArray<DeliveryRequest> values = dataset.getDeliveryRequests();
+        for (int i = 0; i < values.size(); i++) {
+            requests.add(values.get(i));
+        }
+        return requests;
+    }
+
+    public List<Rider> getRiders() {
+        List<Rider> riders = new ArrayList<>();
+        CustomDynamicArray<Rider> values = dataset.getRiders();
+        for (int i = 0; i < values.size(); i++) {
+            riders.add(values.get(i));
+        }
+        return riders;
+    }
+
+    public List<Road> getRoads() {
+        List<Road> roads = new ArrayList<>();
+        CustomDynamicArray<Road> values = dataset.getRoads();
+        for (int i = 0; i < values.size(); i++) {
+            roads.add(values.get(i));
+        }
+        return roads;
+    }
+
+    public int getAvailableRiderCount() {
+        int count = 0;
+        CustomDynamicArray<Rider> riders = dataset.getRiders();
+        for (int i = 0; i < riders.size(); i++) {
+            if (riders.get(i).isAvailable()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public int getLocationCount() {
         return dataset.getLocations().size();
     }
@@ -180,9 +218,11 @@ public class GuiApplicationService {
                 routeAvailable,
                 routeAvailable ? formatPath(route.getPath()) : "Route unavailable",
                 routeAvailable ? routeLabels(route.getPath()) : List.of(),
+                routeAvailable ? routeEdgeTimes(route.getEdgeEffectiveTimes()) : List.of(),
                 routeAvailable ? route.getTotalEffectiveTime() : Double.NaN,
                 riderAssigned,
                 riderAssigned ? labelForRider(assignment.getSelectedRider()) : "No rider/resource assigned",
+                request.getTimeSubmitted(),
                 message);
     }
 
@@ -275,5 +315,16 @@ public class GuiApplicationService {
             labels.add(labelForLocation(path.get(i)));
         }
         return labels;
+    }
+
+    private static List<Double> routeEdgeTimes(CustomDynamicArray<Double> edgeTimes) {
+        List<Double> values = new ArrayList<>();
+        if (edgeTimes == null) {
+            return values;
+        }
+        for (int i = 0; i < edgeTimes.size(); i++) {
+            values.add(edgeTimes.get(i));
+        }
+        return values;
     }
 }

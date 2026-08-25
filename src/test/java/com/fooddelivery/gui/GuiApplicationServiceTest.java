@@ -69,6 +69,8 @@ class GuiApplicationServiceTest {
         GuiOrderResult result = service.placeOrder("LOC001", "LOC003", "Food Delivery", "HIGH", "1.0");
 
         assertEquals(2, result.getRouteNodeLabels().size());
+        assertEquals(1, result.getRouteEdgeTimes().size());
+        assertEquals(8.0, result.getRouteEdgeTimes().get(0), 0.0001);
         assertTrue(result.getRouteNodeLabels().get(0).contains("Restaurant A"));
         assertTrue(result.getRouteNodeLabels().get(1).contains("Campus C"));
     }

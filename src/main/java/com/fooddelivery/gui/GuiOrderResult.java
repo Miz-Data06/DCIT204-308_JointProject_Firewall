@@ -2,6 +2,7 @@ package com.fooddelivery.gui;
 
 import com.fooddelivery.model.RequestStatus;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,9 +19,11 @@ public final class GuiOrderResult {
     private final boolean routeAvailable;
     private final String routePath;
     private final List<String> routeNodeLabels;
+    private final List<Double> routeEdgeTimes;
     private final double effectiveTravelTime;
     private final boolean riderAssigned;
     private final String assignedRiderLabel;
+    private final LocalDateTime timeSubmitted;
     private final String message;
 
     public GuiOrderResult(
@@ -35,9 +38,11 @@ public final class GuiOrderResult {
             boolean routeAvailable,
             String routePath,
             List<String> routeNodeLabels,
+            List<Double> routeEdgeTimes,
             double effectiveTravelTime,
             boolean riderAssigned,
             String assignedRiderLabel,
+            LocalDateTime timeSubmitted,
             String message) {
         this.requestId = requestId;
         this.sourceLabel = sourceLabel;
@@ -52,9 +57,13 @@ public final class GuiOrderResult {
         this.routeNodeLabels = routeNodeLabels == null
                 ? List.of()
                 : Collections.unmodifiableList(new ArrayList<>(routeNodeLabels));
+        this.routeEdgeTimes = routeEdgeTimes == null
+                ? List.of()
+                : Collections.unmodifiableList(new ArrayList<>(routeEdgeTimes));
         this.effectiveTravelTime = effectiveTravelTime;
         this.riderAssigned = riderAssigned;
         this.assignedRiderLabel = assignedRiderLabel;
+        this.timeSubmitted = timeSubmitted;
         this.message = message;
     }
 
@@ -102,6 +111,10 @@ public final class GuiOrderResult {
         return routeNodeLabels;
     }
 
+    public List<Double> getRouteEdgeTimes() {
+        return routeEdgeTimes;
+    }
+
     public double getEffectiveTravelTime() {
         return effectiveTravelTime;
     }
@@ -112,6 +125,10 @@ public final class GuiOrderResult {
 
     public String getAssignedRiderLabel() {
         return assignedRiderLabel;
+    }
+
+    public LocalDateTime getTimeSubmitted() {
+        return timeSubmitted;
     }
 
     public String getMessage() {

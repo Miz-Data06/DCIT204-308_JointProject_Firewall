@@ -8,7 +8,9 @@ import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.RenderingHints;
+import java.awt.geom.QuadCurve2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,8 @@ public class RouteVisualizationPanel extends JPanel {
 
     public RouteVisualizationPanel() {
         setBackground(Color.WHITE);
-        setPreferredSize(new Dimension(680, 210));
+        setPreferredSize(new Dimension(760, 320));
+        setMinimumSize(new Dimension(620, 280));
     }
 
     public void setResult(GuiOrderResult result) {
@@ -50,9 +53,9 @@ public class RouteVisualizationPanel extends JPanel {
         g.setColor(BORDER);
         g.drawRoundRect(8, 8, width - 16, height - 16, 18, 18);
 
-        g.setFont(getFont().deriveFont(Font.BOLD, 15f));
+        g.setFont(getFont().deriveFont(Font.BOLD, 16f));
         g.setColor(TEXT_DARK);
-        g.drawString("Route visualization", 24, 34);
+        g.drawString("Route visualization", 24, 36);
 
         if (result == null || !result.isRouteAvailable() || result.getRouteNodeLabels().isEmpty()) {
             g.setFont(getFont().deriveFont(13f));
@@ -63,29 +66,48 @@ public class RouteVisualizationPanel extends JPanel {
 
         g.setFont(getFont().deriveFont(12f));
         g.setColor(MUTED_TEXT);
-        g.drawString("Estimated effective travel time: "
-                + String.format("%.2f", result.getEffectiveTravelTime()), 24, 56);
+        g.drawString("Estimated travel time: "
+                + formatMinutes(result.getEffectiveTravelTime()), 24, 60);
 
-        List<String> nodes = displayNodes(result.getRouteNodeLabels());
+        DisplayRoute displayRoute = displayRoute(result.getRouteNodeLabels(), result.getRouteEdgeTimes());
+        List<String> nodes = displayRoute.nodes;
         int count = nodes.size();
-        int left = 44;
-        int right = width - 44;
-        int y = 112;
-        int radius = 18;
+        int left = 70;
+        int right = width - 70;
+        int centerY = Math.max(150, height / 2);
+        int radius = 24;
         int available = Math.max(1, right - left);
+        Point[] points = new Point[count];
+        for (int i = 0; i < count; i++) {
+            int x = left + (available * i / Math.max(1, count - 1));
+            int offset = i % 2 == 0 ? -22 : 24;
+            if (i == 0 || i == count - 1) {
+                offset = 0;
+            }
+            points[i] = new Point(x, centerY + offset);
+        }
 
         for (int i = 0; i < count - 1; i++) {
-            int x1 = left + (available * i / Math.max(1, count - 1));
-            int x2 = left + (available * (i + 1) / Math.max(1, count - 1));
+            Point start = points[i];
+            Point end = points[i + 1];
+            int controlX = (start.x + end.x) / 2;
+            int controlY = Math.min(start.y, end.y) - 34;
             g.setColor(PRIMARY_GREEN);
-            g.setStroke(new BasicStroke(3f));
-            g.drawLine(x1 + radius, y, x2 - radius, y);
-            drawArrowHead(g, x2 - radius, y);
+            g.setStroke(new BasicStroke(4f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+            QuadCurve2D curve = new QuadCurve2D.Double(
+                    start.x + radius,
+                    start.y,
+                    controlX,
+                    controlY,
+                    end.x - radius,
+                    end.y);
+            g.draw(curve);
+            drawArrowHead(g, end.x - radius, end.y);
+            drawEdgeLabel(g, displayRoute.edgeLabels.get(i), controlX, controlY - 8);
         }
 
         for (int i = 0; i < count; i++) {
-            int x = left + (available * i / Math.max(1, count - 1));
-            drawNode(g, nodes.get(i), x, y, radius, i, count);
+            drawNode(g, nodes.get(i), points[i].x, points[i].y, radius, i, count);
         }
     }
 
@@ -100,13 +122,13 @@ public class RouteVisualizationPanel extends JPanel {
         g.drawOval(x - radius, y - radius, radius * 2, radius * 2);
 
         g.setColor(text);
-        g.setFont(getFont().deriveFont(Font.BOLD, 12f));
-        String marker = destination ? "D" : source ? "S" : String.valueOf(index);
+        g.setFont(getFont().deriveFont(Font.BOLD, 13f));
+        String marker = destination ? "D" : source ? "S" : shortNodeMarker(label);
         drawCentered(g, marker, x, y + 5);
 
         g.setColor(TEXT_DARK);
-        g.setFont(getFont().deriveFont(11f));
-        drawCentered(g, shorten(label), x, y + 44);
+        g.setFont(getFont().deriveFont(Font.BOLD, 11f));
+        drawCentered(g, shorten(label), x, y + 50);
     }
 
     private void drawArrowHead(Graphics2D g, int x, int y) {
@@ -115,23 +137,88 @@ public class RouteVisualizationPanel extends JPanel {
         g.fillPolygon(xs, ys, 3);
     }
 
+    private void drawEdgeLabel(Graphics2D g, String label, int centerX, int baselineY) {
+        if (label == null || label.isBlank()) {
+            return;
+        }
+        Font previousFont = g.getFont();
+        g.setFont(getFont().deriveFont(Font.BOLD, 11f));
+        FontMetrics metrics = g.getFontMetrics();
+        int width = metrics.stringWidth(label) + 12;
+        int height = 18;
+        int x = centerX - width / 2;
+        int y = baselineY - height + 4;
+        g.setColor(new Color(0xF0FDF4));
+        g.fillRoundRect(x, y, width, height, 10, 10);
+        g.setColor(new Color(0xBBF7D0));
+        g.drawRoundRect(x, y, width, height, 10, 10);
+        g.setColor(DARK_GREEN);
+        drawCentered(g, label, centerX, baselineY);
+        g.setFont(previousFont);
+    }
+
     private void drawCentered(Graphics2D g, String text, int centerX, int baselineY) {
         FontMetrics metrics = g.getFontMetrics();
         g.drawString(text, centerX - metrics.stringWidth(text) / 2, baselineY);
     }
 
-    private static List<String> displayNodes(List<String> nodes) {
-        if (nodes.size() <= 6) {
-            return nodes;
+    private static DisplayRoute displayRoute(List<String> nodes, List<Double> edgeTimes) {
+        List<String> safeNodes = nodes == null ? List.of() : nodes;
+        List<Double> safeEdgeTimes = edgeTimes == null ? List.of() : edgeTimes;
+        if (safeNodes.size() <= 6) {
+            return new DisplayRoute(safeNodes, directEdgeLabels(safeEdgeTimes, Math.max(0, safeNodes.size() - 1)));
         }
         List<String> display = new ArrayList<>();
-        display.add(nodes.get(0));
-        display.add(nodes.get(1));
-        display.add(nodes.get(2));
-        display.add("...");
-        display.add(nodes.get(nodes.size() - 2));
-        display.add(nodes.get(nodes.size() - 1));
-        return display;
+        display.add(safeNodes.get(0));
+        display.add(safeNodes.get(1));
+        int hiddenStops = safeNodes.size() - 4;
+        display.add("+" + hiddenStops + " more");
+        display.add(safeNodes.get(safeNodes.size() - 2));
+        display.add(safeNodes.get(safeNodes.size() - 1));
+
+        List<String> labels = new ArrayList<>();
+        labels.add(edgeLabel(safeEdgeTimes, 0));
+        labels.add(combinedLabel(safeEdgeTimes, 1, safeNodes.size() - 3, hiddenStops));
+        labels.add("+" + hiddenStops + " stops");
+        labels.add(edgeLabel(safeEdgeTimes, safeNodes.size() - 2));
+        return new DisplayRoute(display, labels);
+    }
+
+    private static List<String> directEdgeLabels(List<Double> edgeTimes, int expectedCount) {
+        List<String> labels = new ArrayList<>();
+        for (int i = 0; i < expectedCount; i++) {
+            labels.add(edgeLabel(edgeTimes, i));
+        }
+        return labels;
+    }
+
+    private static String edgeLabel(List<Double> edgeTimes, int index) {
+        if (index < 0 || index >= edgeTimes.size()) {
+            return "";
+        }
+        return formatMinutes(edgeTimes.get(index));
+    }
+
+    private static String combinedLabel(List<Double> edgeTimes, int startInclusive, int endInclusive, int hiddenStops) {
+        if (startInclusive < 0 || endInclusive >= edgeTimes.size() || startInclusive > endInclusive) {
+            return "+" + hiddenStops + " stops";
+        }
+        double total = 0.0;
+        for (int i = startInclusive; i <= endInclusive; i++) {
+            total += edgeTimes.get(i);
+        }
+        return "middle: " + formatMinutes(total);
+    }
+
+    private static String formatMinutes(double value) {
+        return String.format("%.1f min", value);
+    }
+
+    private static String shortNodeMarker(String label) {
+        if (label == null || label.isBlank() || label.startsWith("+")) {
+            return "+";
+        }
+        return shorten(label).substring(0, Math.min(2, shorten(label).length())).toUpperCase();
     }
 
     private static String shorten(String label) {
@@ -147,5 +234,15 @@ public class RouteVisualizationPanel extends JPanel {
             return value.substring(0, 15) + "...";
         }
         return value;
+    }
+
+    private static final class DisplayRoute {
+        private final List<String> nodes;
+        private final List<String> edgeLabels;
+
+        private DisplayRoute(List<String> nodes, List<String> edgeLabels) {
+            this.nodes = nodes;
+            this.edgeLabels = edgeLabels;
+        }
     }
 }

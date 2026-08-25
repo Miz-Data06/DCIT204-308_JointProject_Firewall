@@ -94,7 +94,7 @@ public class DijkstraFastestRoute {
 
         CustomDynamicArray<String> path = reconstructPath(source, destination, predecessors, indexById);
         double totalDistance = totalDistance(graph, path);
-        return new RouteResult(true, path, totalDistance, distances[destinationIndex], trace);
+        return new RouteResult(true, path, edgeEffectiveTimes(graph, path), totalDistance, distances[destinationIndex], trace);
     }
 
     private static int selectUnvisitedMinimum(
@@ -148,5 +148,13 @@ public class DijkstraFastestRoute {
             total += GraphAlgorithmSupport.findEdge(graph, path.get(i), path.get(i + 1)).getDistanceKm();
         }
         return total;
+    }
+
+    private static CustomDynamicArray<Double> edgeEffectiveTimes(CustomGraph graph, CustomDynamicArray<String> path) {
+        CustomDynamicArray<Double> edgeTimes = new CustomDynamicArray<>();
+        for (int i = 0; i < path.size() - 1; i++) {
+            edgeTimes.add(GraphAlgorithmSupport.findEdge(graph, path.get(i), path.get(i + 1)).getEffectiveTime());
+        }
+        return edgeTimes;
     }
 }
