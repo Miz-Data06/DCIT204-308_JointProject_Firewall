@@ -24,6 +24,9 @@ class DijkstraFastestRouteTest {
             assertEquals("A,C,D", GraphAlgorithmFixtures.ids(result.getPath()));
             assertEquals(20.0, result.getTotalDistanceKm(), 0.0001);
             assertEquals(6.0, result.getTotalEffectiveTime(), 0.0001);
+            assertEquals(2, result.getEdgeEffectiveTimes().size());
+            assertEquals(3.0, result.getEdgeEffectiveTimes().get(0), 0.0001);
+            assertEquals(3.0, result.getEdgeEffectiveTimes().get(1), 0.0001);
             assertTrue(result.getTrace().size() > 0);
         }
     }
@@ -62,6 +65,7 @@ class DijkstraFastestRouteTest {
 
         assertTrue(result.isReachable());
         assertEquals("A", GraphAlgorithmFixtures.ids(result.getPath()));
+        assertEquals(0, result.getEdgeEffectiveTimes().size());
         assertEquals(0.0, result.getTotalDistanceKm(), 0.0001);
         assertEquals(0.0, result.getTotalEffectiveTime(), 0.0001);
     }
@@ -76,6 +80,7 @@ class DijkstraFastestRouteTest {
 
         assertFalse(result.isReachable());
         assertEquals(0, result.getPath().size());
+        assertEquals(0, result.getEdgeEffectiveTimes().size());
     }
 
     @Test

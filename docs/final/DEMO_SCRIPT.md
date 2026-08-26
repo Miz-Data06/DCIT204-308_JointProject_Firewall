@@ -6,7 +6,7 @@ This script is for a short presentation of the Food Delivery System.
 
 Say:
 
-> This project is a Java 17 food delivery system. It uses our custom data structures, custom algorithms, CSV dataset mapping, SQLite through JDBC, and a console workflow. The demo uses the real dataset under `data/`.
+> This project is a Java 17 food delivery system. The presentation demo should use the GUI/application flow to show order creation, request handling, routing, rider/resource assignment, and result output. The console workflow remains available as a technical fallback.
 
 Then explain the main dataset:
 
@@ -15,9 +15,29 @@ Then explain the main dataset:
 - 900 delivery requests
 - 90 riders/resources
 
-## How to Run
+## Demo Direction
 
-Use Maven:
+Use the GUI/application experience as the main presentation path:
+
+1. Place or request a delivery.
+2. Show the route or result produced for the request.
+3. Assign a rider/resource.
+4. Show dataset-backed information such as locations, roads, requests, or riders.
+5. Explain that custom data structures and algorithms work behind the scenes.
+
+For a smooth live demo, use the `Use Sample Route` button, place the request, then show the delivery result cards, route visualization, assigned rider/resource, recent request table, and system summary cards.
+
+Keep the technical explanation high level: the system uses custom structures for storing delivery data, graph algorithms for route and road-network decisions, and optimization logic for request/rider decisions.
+
+Run the GUI with:
+
+```powershell
+mvn exec:java "-Dexec.mainClass=com.fooddelivery.gui.FoodDeliveryGuiApp"
+```
+
+## Console Fallback
+
+If the GUI is unavailable during presentation, use Maven:
 
 ```powershell
 mvn exec:java "-Dexec.mainClass=com.fooddelivery.Main"
@@ -29,7 +49,7 @@ If the lecturer only wants tests:
 mvn test
 ```
 
-## Menu Flow
+## Console Menu Flow
 
 ### Option 1 - Initialize/import dataset
 
@@ -163,7 +183,7 @@ The database is recreated from CSV files and schema code. Generated files are bu
 The core data structures and algorithms use the project custom structures. Standard Java APIs are used only where suitable for language features, JDBC, paths, dates, tests, and small helper tasks.
 
 **What was the final test result?**  
-511 tests passed with no failures, errors, or skipped tests.
+519 tests passed with no failures, errors, or skipped tests.
 
 **What is still missing?**  
 The code and evidence are ready. Any extra school-specific report template or contribution declaration was not specified in provided local brief/handoff files.
