@@ -83,6 +83,9 @@ public class FoodDeliveryGui extends JFrame {
     private final JTextArea technicalDetailsArea = readOnlyArea(6);
     private final JPanel technicalDetailsPanel = card("Technical details");
     private final RouteVisualizationPanel routeVisualizationPanel = new RouteVisualizationPanel();
+    private final JLabel queueEmptyLabel = new JLabel(
+            "No queued requests yet. Place an order to see it ranked for dispatch.",
+            SwingConstants.CENTER);
     private final DefaultTableModel recentModel = new DefaultTableModel(
             new Object[]{
                     "Queue #",
@@ -284,9 +287,19 @@ public class FoodDeliveryGui extends JFrame {
         table.getColumnModel().getColumn(3).setPreferredWidth(170);
         table.getColumnModel().getColumn(4).setPreferredWidth(170);
         table.getColumnModel().getColumn(8).setPreferredWidth(220);
+        queueEmptyLabel.setForeground(MUTED_TEXT);
+        queueEmptyLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 14));
+        queueEmptyLabel.setBorder(BorderFactory.createEmptyBorder(22, 12, 22, 12));
+        JScrollPane tableScroll = new JScrollPane(table);
+        JPanel queueContent = new JPanel(new BorderLayout(0, 8));
+        queueContent.setOpaque(false);
+        queueContent.add(queueEmptyLabel, BorderLayout.NORTH);
+        queueContent.add(tableScroll, BorderLayout.CENTER);
+        updateDispatchQueueEmptyState();
+
         JPanel card = card("Dispatch queue");
         card.add(summary, BorderLayout.NORTH);
-        card.add(new JScrollPane(table), BorderLayout.CENTER);
+        card.add(queueContent, BorderLayout.CENTER);
         panel.add(card, BorderLayout.CENTER);
         return panel;
     }
@@ -490,7 +503,7 @@ public class FoodDeliveryGui extends JFrame {
 
     private JPanel availableRidersCard() {
         JPanel panel = card("Available Riders");
-        String[] columns = {"Rider", "Vehicle", "Capacity"};
+        String[] columns = {"Rider", "Vehicle", "Load limit"};
         List<Rider> riders = service.getRiders();
         List<Rider> available = new ArrayList<>();
         for (Rider rider : riders) {
@@ -505,7 +518,7 @@ public class FoodDeliveryGui extends JFrame {
             rows[i] = new Object[]{
                     rider.getName(),
                     rider.getVehicleType(),
-                    String.format("%.1f", rider.getCarryingCapacity())
+                    formatLoadLimit(rider.getCarryingCapacity())
             };
         }
         panel.add(new JScrollPane(dashboardTable(columns, rows)), BorderLayout.CENTER);
@@ -870,6 +883,13 @@ public class FoodDeliveryGui extends JFrame {
         return String.format("%.1f min", value);
     }
 
+    private static String formatLoadLimit(double value) {
+        if (Math.abs(value - Math.rint(value)) < 0.0001) {
+            return String.format("%.0f units", value);
+        }
+        return String.format("%.1f units", value);
+    }
+
     private void refreshRecentRequests() {
         recentModel.setRowCount(0);
         List<GuiOrderResult> queue = new ArrayList<>(service.getRecentRequests());
@@ -890,6 +910,11 @@ public class FoodDeliveryGui extends JFrame {
                     result.getAssignedRiderLabel()
             });
         }
+        updateDispatchQueueEmptyState();
+    }
+
+    private void updateDispatchQueueEmptyState() {
+        queueEmptyLabel.setVisible(recentModel.getRowCount() == 0);
     }
 
     private static String shortLocation(String label) {
