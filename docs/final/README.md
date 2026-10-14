@@ -12,8 +12,8 @@ This folder contains the final documentation package for the Food Delivery Syste
 | `TESTING_AND_VALIDATION.md` | Final Maven verification and compliance notes |
 | `DEMO_SCRIPT.md` | Presentation/demo script |
 | `SUBMISSION_CHECKLIST.md` | Final submission checklist |
-| `TEAM_CONTRIBUTIONS_AND_DEVELOPMENT_LOG.md` | Verified development history and attribution status |
+| `TEAM_CONTRIBUTIONS_AND_DEVELOPMENT_LOG.md` | Development history and team-confirmed individual contributions |
 | `DSA_CORRECTNESS_EVIDENCE.md` | Trace tables, proof sketches, counterexamples, and edge-case evidence |
 | `AI_USE_ACKNOWLEDGEMENT.md` | Truthful acknowledgement of AI-assisted drafting and evidence checking |
 
-Project brief and handoff files were not present locally beyond the README. Missing brief-specific details are marked as `Not specified in provided brief/handoff`, and any unverifiable individual contribution is marked as `requires confirmation`.
+Project brief and handoff files were not present locally beyond the README. Missing brief-specific details are marked as `Not specified in provided brief/handoff`. Individual responsibility areas are recorded as team-confirmed allocations and are not inferred from Git authorship.

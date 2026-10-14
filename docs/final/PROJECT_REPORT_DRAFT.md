@@ -143,7 +143,7 @@ The repository keeps the evidence for the project in a small set of tracked loca
 - `docs/final/submission/` holds the lecturer-facing cover sheet, data dictionary, performance analysis, and demo notes.
 - `docs/final/submission/performance/results/` contains the reproducible benchmark outputs and SVG charts generated from the measured algorithm timings.
 
-This report intentionally distinguishes verified repository evidence from unsupported or brief-specific claims. Where a detail is unavailable or not yet confirmed by the team, the wording remains conservative rather than speculative.
+This report distinguishes verified repository evidence from unsupported or brief-specific claims. Team-confirmed contribution allocations are documented separately from repository-derived evidence.
 
 ## Testing and Validation
 

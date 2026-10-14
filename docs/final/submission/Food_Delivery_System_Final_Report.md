@@ -421,28 +421,28 @@ The project does not claim universal optimality for all possible routing or disp
 
 ## 11. Individual contributions and oral-defense preparation
 
-The repository supports a coarse team timeline and the roster of 14 members, but it does not preserve a verified individual task ledger. Therefore, the final documentation clearly labels each contribution status as `requires confirmation` until the team provides a signed or authoritative record.
+The repository supports a coarse team timeline and the roster of 14 members. The team has confirmed the agreed responsibility allocation below. This team-confirmed record is distinct from repository-derived evidence and does not claim independent Git-history verification of each individual assignment.
 
-### Proposed responsibility matrix (pending team confirmation)
+### Team-Confirmed Individual Contributions
 
-| Student | Student ID | Proposed role area | Status |
+| Student | Student ID | Confirmed responsibility area | Status |
 |---|---:|---|---|
-| Augustine Yeboah Kumi | 22375677 | Dataset and validation support | Pending team confirmation |
-| Emmanuel Eyram Korku Agbetor | 22206812 | Database and schema validation | Pending team confirmation |
-| Adu Asare Daniel | 22305775 | Routing and graph logic | Pending team confirmation |
-| Hillary Aku Shika Allotey | 22047762 | Search/sort implementation | Pending team confirmation |
-| Eyram Mami Araba Kumah | 22047897 | Data structures and testing | Pending team confirmation |
-| Nana yaw Marfo Agyei | 22397946 | Request optimisation and DP | Pending team confirmation |
-| Michael Akuffo Nyarko | 22411068 | GUI workflow and demo preparation | Pending team confirmation |
-| Jedidiah Nii Saban Delali Annan | 22037871 | Repository and evidence reconciliation | Pending team confirmation |
-| Sarpong Seth Appiah | 22372405 | Graph and MST evidence | Pending team confirmation |
-| Kingsbel Obese Sakyi | 22300123 | Dataset mapping and import | Pending team confirmation |
-| Musharafa Moro | 22059797 | Integration testing and validation | Pending team confirmation |
-| Ampiah Samuel Abeka Sika | 22395143 | Performance benchmark support | Pending team confirmation |
-| Wafaa Abdullah Layipana | 22383560 | Documentation and report drafting | Pending team confirmation |
-| Ishawu Abdul Manaf | 22406162 | Final submission review and presentation support | Pending team confirmation |
+| Augustine Yeboah Kumi | 22375677 | Dataset and validation support | Team-confirmed |
+| Emmanuel Eyram Korku Agbetor | 22206812 | Database and schema validation | Team-confirmed |
+| Adu Asare Daniel | 22305775 | Routing and graph logic | Team-confirmed |
+| Hillary Aku Shika Allotey | 22047762 | Search/sort implementation | Team-confirmed |
+| Eyram Mami Araba Kumah | 22047897 | Data structures and testing | Team-confirmed |
+| Nana yaw Marfo Agyei | 22397946 | Request optimisation and DP | Team-confirmed |
+| Michael Akuffo Nyarko | 22411068 | GUI workflow and demo preparation | Team-confirmed |
+| Jedidiah Nii Saban Delali Annan | 22037871 | Repository and evidence reconciliation | Team-confirmed |
+| Sarpong Seth Appiah | 22372405 | Graph and MST evidence | Team-confirmed |
+| Kingsbel Obese Sakyi | 22300123 | Dataset mapping and import | Team-confirmed |
+| Musharafa Moro | 22059797 | Integration testing and validation | Team-confirmed |
+| Ampiah Samuel Abeka Sika | 22395143 | Performance benchmark support | Team-confirmed |
+| Wafaa Abdullah Layipana | 22383560 | Documentation and report drafting | Team-confirmed |
+| Ishawu Abdul Manaf | 22406162 | Final submission review and presentation support | Team-confirmed |
 
-This section is intentionally conservative and aligns with the projectâ€™s evidence standard. It is not a claim that any unverified contribution is complete.
+The allocation is team-confirmed. It does not imply that repository commit history independently attributes each responsibility area to an individual.
 
 ### Oral-defense preparation
 
@@ -465,13 +465,11 @@ The final presentation should focus on the validated project storyline: dataset 
 
 ### Appendix A: priority weights and index note
 
-The projectâ€™s index-derived priority weights currently used in the implementation are 58, 74, and 72, normalized by 204. The formula is therefore:
+The team-confirmed index-derived priority parameters used in the implementation are 58, 74, and 72, normalized by 204. The repository does not retain the underlying index-digit derivation record, so this report records the confirmed implementation values and their normalized form without reconstructing or inventing an unsupported calculation.
 
 - urgency = 58 / 204
 - deadline = 74 / 204
 - waiting time = 72 / 204
-
-The absolute original student-index derivation for these values is not yet verified in the repository or briefing materials. The current report therefore treats the 58/74/72 weights as implemented and approved for the project, while the derivation source remains unverified until team confirmation.
 
 ### Appendix B: evidence files
 
@@ -493,4 +491,4 @@ This report was prepared with the assistance of an AI coding agent for documenta
 
 ## Final note
 
-The deliverable is an academically appropriate technical report based on the repositoryâ€™s verified implementation and evidence. It does not claim unsupported features, unverified contributions, or undocumented derivations; it instead documents what is supported by the implementation and the available project evidence.
+The deliverable is an academically appropriate technical report based on the repositoryâ€™s verified implementation and evidence. It does not claim unsupported features; it distinguishes repository-derived evidence from the team-confirmed contribution allocation and priority parameters.
