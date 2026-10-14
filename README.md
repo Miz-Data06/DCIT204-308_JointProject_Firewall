@@ -32,7 +32,7 @@ The project uses SQLite through JDBC and creates the schema at runtime. The oper
 
 Final project documentation is available under [`docs/final/`](docs/final/). The current academic package includes:
 
-- `docs/final/PROJECT_REPORT_DRAFT.md`
+- `docs/archive/PROJECT_REPORT_DRAFT.md` (historical archive)
 - `docs/final/TEAM_CONTRIBUTIONS_AND_DEVELOPMENT_LOG.md`
 - `docs/final/DSA_CORRECTNESS_EVIDENCE.md`
 - `docs/final/AI_USE_ACKNOWLEDGEMENT.md`

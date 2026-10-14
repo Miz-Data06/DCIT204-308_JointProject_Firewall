@@ -15,11 +15,10 @@
 - `docs/final/submission/DATA_DICTIONARY.md`
 - `docs/final/submission/PERFORMANCE_ANALYSIS.md`
 - `docs/final/submission/performance/results/`
-- `docs/final/PROJECT_REPORT_DRAFT.md`
 - `docs/final/submission/Food_Delivery_System_Final_Report.md`
 - `docs/final/submission/Food_Delivery_System_Final_Report.docx`
 - `docs/final/submission/Food_Delivery_System_Final_Report.pdf`
-- `docs/final/submission/DEMO_SLIDES_OUTLINE.md` or manually created slides.
+- `docs/archive/DEMO_SLIDES_OUTLINE.md` or manually created slides.
 - Evidence files under `evidence/`.
 
 ## How to Run the App

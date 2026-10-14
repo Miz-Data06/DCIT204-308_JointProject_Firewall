@@ -1,3 +1,7 @@
+# Archived Historical Project Report Draft
+
+This file is retained only as a historical draft record. The active final report source is `docs/final/submission/Food_Delivery_System_Final_Report.md` and the package also includes the generated DOCX and PDF exports.
+
 # Food Delivery System - Project Report Draft
 
 ## Title Page Information

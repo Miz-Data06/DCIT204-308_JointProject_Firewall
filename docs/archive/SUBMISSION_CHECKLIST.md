@@ -1,3 +1,7 @@
+# Archived Historical Submission Checklist
+
+This file is retained only for audit history. The active submission checklist is the final cover sheet and checklist in `docs/final/submission/DCIT_204_308_COVER_SHEET_AND_CHECKLIST.md`.
+
 # Submission Checklist
 
 ## Code
@@ -50,7 +54,7 @@
 
 ## Report
 
-- [x] Draft report created at `docs/final/PROJECT_REPORT_DRAFT.md`.
+- [x] Draft report created at `docs/archive/PROJECT_REPORT_DRAFT.md`.
 - [x] Data structures documentation created.
 - [x] Algorithms documentation created.
 - [x] Database/dataset documentation created.

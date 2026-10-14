@@ -44,8 +44,8 @@
 | Greedy and DP algorithms | [x] | `src/main/java/com/fooddelivery/algorithms/`; `evidence/optimization_demo_output.txt` |
 | Correctness tests and trace tables | [x] | `src/test/java/com/fooddelivery/`; `docs/final/TRACE_TABLES_AND_DEMO_EVIDENCE.md`; `evidence/*.txt` |
 | Performance CSV and graphs | [x] | `docs/final/submission/performance/results/`; `docs/final/submission/performance/README.md`; `docs/final/submission/PERFORMANCE_ANALYSIS.md` |
-| Technical report | [x] | `docs/final/submission/Food_Delivery_System_Final_Report.md`; `.docx`; `.pdf`; `docs/final/submission/REPORT_CONVERSION_NOTES.md` |
-| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/final/submission/DEMO_SLIDES_OUTLINE.md`; report DOCX/PDF exports are present, while the demonstration video remains outside this repository decision. |
+| Technical report | [x] | `docs/final/submission/Food_Delivery_System_Final_Report.md`; `.docx`; `.pdf`; `docs/archive/REPORT_CONVERSION_NOTES.md` |
+| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/archive/DEMO_SLIDES_OUTLINE.md`; report DOCX/PDF exports are present, while the demonstration video remains outside this repository decision. |
 
 ## Repository Verification Snapshot
 
