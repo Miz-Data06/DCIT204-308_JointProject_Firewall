@@ -4,8 +4,8 @@
 
 - Confirm all student names and IDs.
 - Check lecturer formatting rules for the cover sheet, report, and slides.
-- Review the DOCX report formatting and export it to PDF if required.
-- To be prepared and presented by the team during final defense.
+- Review the Markdown source and the generated DOCX/PDF report exports together with the supporting evidence.
+- Present the GUI/demo flow and the evidence files during the final defense.
 
 ## Files to Submit
 
@@ -14,10 +14,11 @@
 - `docs/final/submission/DCIT_204_308_COVER_SHEET_AND_CHECKLIST.md`
 - `docs/final/submission/DATA_DICTIONARY.md`
 - `docs/final/submission/PERFORMANCE_ANALYSIS.md`
-- `docs/final/submission/performance_graphs/*.png`
+- `docs/final/submission/performance/results/`
 - `docs/final/PROJECT_REPORT_DRAFT.md`
+- `docs/final/submission/Food_Delivery_System_Final_Report.md`
 - `docs/final/submission/Food_Delivery_System_Final_Report.docx`
-- Manually exported `Food_Delivery_System_Final_Report.pdf` if required.
+- `docs/final/submission/Food_Delivery_System_Final_Report.pdf`
 - `docs/final/submission/DEMO_SLIDES_OUTLINE.md` or manually created slides.
 - Evidence files under `evidence/`.
 
@@ -48,7 +49,7 @@ mvn package
 git diff --check
 ```
 
-Expected result: 519 tests pass, package succeeds, and whitespace check succeeds.
+Expected result: 537 tests pass, package succeeds, and whitespace check succeeds.
 
 ## Demo Steps
 
@@ -65,7 +66,7 @@ Expected result: 519 tests pass, package succeeds, and whitespace check succeeds
 
 - Check `git status` before final submission.
 - Do not include generated database files, generated jars, `target/`, temporary scripts, or cache folders.
-- Push the completed `feature/application-integration` branch to `origin` when the group is ready and the lecturer submission rules allow it.
+- Push the completed `main` branch to `origin` when the group is ready and the lecturer submission rules allow it.
 
 ## ZIP Reminder
 

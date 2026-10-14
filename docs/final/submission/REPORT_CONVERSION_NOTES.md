@@ -4,22 +4,17 @@ Source report:
 
 - `docs/final/PROJECT_REPORT_DRAFT.md`
 
-Generated automatically:
+Current state:
 
-- `docs/final/submission/Food_Delivery_System_Final_Report.docx`
+- The final report is available as `Food_Delivery_System_Final_Report.md`, `Food_Delivery_System_Final_Report.docx`, and `Food_Delivery_System_Final_Report.pdf` in this directory.
+- The Markdown file is the editable source. The DOCX and PDF are generated artifacts and should be regenerated with `generate_final_report_exports.py` after any approved report change.
 
-Not generated automatically:
+Regeneration and review workflow:
 
-- `docs/final/submission/Food_Delivery_System_Final_Report.pdf`
-
-PDF conversion was not completed automatically because `pandoc`, LibreOffice/`soffice`, and a Python PDF library were not available in the current environment. The Markdown report and DOCX export remain available.
-
-Manual conversion needed:
-
-1. Open `docs/final/submission/Food_Delivery_System_Final_Report.docx` in Microsoft Word, LibreOffice Writer, or Google Docs.
-2. Review formatting, page breaks, and table layout.
-3. Export or save as PDF using the required lecturer format.
-4. Name the exported file `Food_Delivery_System_Final_Report.pdf`.
+1. Update the Markdown source only when an approved factual or formatting correction is needed.
+2. Run `python docs/final/submission/generate_final_report_exports.py` from the repository root.
+3. Review page numbers, page breaks, table layout, figures, and roster details in both exports.
+4. Keep all three report formats together for final submission.
 
 Confirmed submission details:
 
@@ -31,3 +26,4 @@ Before submission, manually confirm:
 
 - Student name spelling and capitalization.
 - Any lecturer-specific cover page, font, spacing, or declaration format.
+- Any lecturer-specific format, spacing, declaration, or cover-sheet requirements beyond the supplied report format.

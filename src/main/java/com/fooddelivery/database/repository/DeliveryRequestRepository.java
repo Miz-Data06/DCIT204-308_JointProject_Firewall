@@ -1,15 +1,15 @@
 package com.fooddelivery.database.repository;
 
-import com.fooddelivery.database.DatabaseConnectionFactory;
-import com.fooddelivery.datastructures.linear.CustomDynamicArray;
-import com.fooddelivery.model.DeliveryRequest;
-import com.fooddelivery.model.RequestStatus;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
+
+import com.fooddelivery.database.DatabaseConnectionFactory;
+import com.fooddelivery.datastructures.linear.CustomDynamicArray;
+import com.fooddelivery.model.DeliveryRequest;
+import com.fooddelivery.model.RequestStatus;
 
 public class DeliveryRequestRepository {
     private final DatabaseConnectionFactory connectionFactory;
@@ -19,14 +19,21 @@ public class DeliveryRequestRepository {
     }
 
     public void save(DeliveryRequest request) {
+        try (Connection connection = connectionFactory.openConnection()) {
+            saveInTransaction(connection, request);
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not save delivery request", exception);
+        }
+    }
+
+    public void saveInTransaction(Connection connection, DeliveryRequest request) {
         String sql = """
                 INSERT OR REPLACE INTO delivery_requests
                 (request_id, source_location_id, destination_location_id, category, urgency, capacity_required,
                  time_submitted, deadline, status, priority_score)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """;
-        try (Connection connection = connectionFactory.openConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setString(1, request.getRequestId());
             statement.setString(2, request.getSourceLocationId());
             statement.setString(3, request.getDestinationLocationId());
@@ -68,6 +75,18 @@ public class DeliveryRequestRepository {
             return requests;
         } catch (SQLException exception) {
             throw new IllegalStateException("Could not list delivery requests", exception);
+        }
+    }
+
+    public void updateStatus(String requestId, RequestStatus status) {
+        String sql = "UPDATE delivery_requests SET status = ? WHERE request_id = ?";
+        try (Connection connection = connectionFactory.openConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, status.name());
+            statement.setString(2, requestId);
+            statement.executeUpdate();
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not update delivery request status", exception);
         }
     }
 

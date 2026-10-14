@@ -33,11 +33,28 @@ public class SelectionSort {
             RequestSortKey sortKey,
             boolean descending,
             EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, true);
+    }
+
+    SortResult sortWithoutTrace(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, false);
+    }
+
+    private SortResult sortInternal(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider,
+            boolean captureTrace) {
         RequestComparators.requireRequests(requests);
         RequestComparators.validateEstimatedProvider(sortKey, estimatedDeliveryTimeProvider);
         RequestComparators.validateEstimatedTimes(requests, sortKey, estimatedDeliveryTimeProvider);
         DeliveryRequest[] working = RequestComparators.copyToArray(requests);
-        CustomDynamicArray<SortTraceStep> trace = new CustomDynamicArray<>();
+        CustomDynamicArray<SortTraceStep> trace = captureTrace ? new CustomDynamicArray<>() : null;
         int operations = sortArray(working, sortKey, descending, estimatedDeliveryTimeProvider, trace);
         return new SortResult(toCustomArray(working), operations, trace, false);
     }
@@ -62,7 +79,9 @@ public class SelectionSort {
                 working[i] = working[selectedIndex];
                 working[selectedIndex] = temp;
             }
-            trace.add(new SortTraceStep("select", i, selectedIndex, snapshot(working)));
+            if (trace != null) {
+                trace.add(new SortTraceStep("select", i, selectedIndex, snapshot(working)));
+            }
         }
         return operations;
     }

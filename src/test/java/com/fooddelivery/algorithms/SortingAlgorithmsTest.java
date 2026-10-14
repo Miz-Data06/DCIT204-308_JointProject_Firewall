@@ -98,6 +98,20 @@ class SortingAlgorithmsTest {
     }
 
     @Test
+    void traceDisabledBenchmarkPathMatchesTraceEnabledSorts() {
+        CustomDynamicArray<DeliveryRequest> input = AlgorithmTestFixtures.requests(
+                AlgorithmTestFixtures.request("REQ-003", 0, 60, 1),
+                AlgorithmTestFixtures.request("REQ-001", 1, 61, 2),
+                AlgorithmTestFixtures.request("REQ-002", 2, 62, 3));
+
+        for (String algorithm : new String[] {"selection_sort", "insertion_sort", "merge_sort", "quick_sort"}) {
+            SortResult traceDisabled = SortBenchmarkOperations.sortWithoutTrace(algorithm, input, RequestSortKey.REQUEST_ID);
+            assertEquals("REQ-001,REQ-002,REQ-003", AlgorithmTestFixtures.ids(traceDisabled.getSortedRequests()));
+            assertEquals(0, traceDisabled.getTrace().size());
+        }
+    }
+
+    @Test
     void sortsRejectInvalidInputsAndEstimatedTimeProblems() {
         SelectionSort selectionSort = new SelectionSort();
         CustomDynamicArray<DeliveryRequest> requests = AlgorithmTestFixtures.requests(

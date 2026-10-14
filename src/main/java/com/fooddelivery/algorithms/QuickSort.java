@@ -34,11 +34,28 @@ public class QuickSort {
             RequestSortKey sortKey,
             boolean descending,
             EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, true);
+    }
+
+    SortResult sortWithoutTrace(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, false);
+    }
+
+    private SortResult sortInternal(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider,
+            boolean captureTrace) {
         RequestComparators.requireRequests(requests);
         RequestComparators.validateEstimatedProvider(sortKey, estimatedDeliveryTimeProvider);
         RequestComparators.validateEstimatedTimes(requests, sortKey, estimatedDeliveryTimeProvider);
         DeliveryRequest[] working = RequestComparators.copyToArray(requests);
-        CustomDynamicArray<SortTraceStep> trace = new CustomDynamicArray<>();
+        CustomDynamicArray<SortTraceStep> trace = captureTrace ? new CustomDynamicArray<>() : null;
         int operations = quickSort(working, 0, working.length - 1, sortKey, descending, estimatedDeliveryTimeProvider, trace);
         return new SortResult(SelectionSort.toCustomArray(working), operations, trace, false);
     }
@@ -55,7 +72,9 @@ public class QuickSort {
             return 0;
         }
         PartitionResult partition = partition(working, low, high, sortKey, descending, provider);
-        trace.add(new SortTraceStep("partition", low, high, SelectionSort.snapshot(working)));
+        if (trace != null) {
+            trace.add(new SortTraceStep("partition", low, high, SelectionSort.snapshot(working)));
+        }
         int operations = partition.operationCount;
         operations += quickSort(working, low, partition.pivotIndex - 1, sortKey, descending, provider, trace);
         operations += quickSort(working, partition.pivotIndex + 1, high, sortKey, descending, provider, trace);

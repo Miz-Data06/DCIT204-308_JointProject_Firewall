@@ -1,31 +1,26 @@
 # Performance Analysis
 
-The performance checklist uses the official file `data/algorithm_runs.csv`. The CSV contains 60 measured rows filtered to algorithms implemented in this project, with these fields: run id, algorithm name, input size, run number, runtime in nanoseconds, memory in kilobytes, and execution date/time.
+This report uses the reproducible timing outputs generated under `docs/final/submission/performance/results/`. The current benchmark package records both the raw repetitions (`raw_timings.csv`) and the aggregated means (`aggregated_timings.csv`), and the generated charts are stored as SVG files in the same directory.
+
+The historical `data/algorithm_runs.csv` file remains a preserved dataset artifact and is not treated as the current benchmark output. The performance narrative therefore refers to the tracked reproduction under `docs/final/submission/performance/results/` unless a separate historical import is explicitly being discussed.
 
 ## Generated Graphs
 
 | Graph | File | What it shows |
 |---|---|---|
-| Runtime by algorithm/input size | `docs/final/submission/performance_graphs/runtime_by_algorithm.png` | Runtime trend for each algorithm across measured input sizes |
-| Memory by algorithm/input size | `docs/final/submission/performance_graphs/memory_by_algorithm.png` | Memory trend for each algorithm across measured input sizes |
-| Average runtime per algorithm | `docs/final/submission/performance_graphs/average_runtime.png` | Mean runtime for each algorithm across its recorded runs |
-| Average memory per algorithm | `docs/final/submission/performance_graphs/average_memory.png` | Mean memory usage for each algorithm across its recorded runs |
+| Search timings | `docs/final/submission/performance/results/search_timings.svg` | Measured search-family runtime trend across the tested input sizes |
+| Sort timings | `docs/final/submission/performance/results/sort_timings.svg` | Measured sort-family runtime trend across the tested input sizes |
+| Graph timings | `docs/final/submission/performance/results/graph_timings.svg` | Measured graph-family runtime trend across the tested graph sizes |
+| Heap timings | `docs/final/submission/performance/results/heap_timings.svg` | Measured heap-family runtime trend across the tested sizes |
+| Hash timings | `docs/final/submission/performance/results/hash_timings.svg` | Measured hash-family runtime and load-factor behaviour |
+| Tree timings | `docs/final/submission/performance/results/tree_timings.svg` | Measured tree-family runtime and height behaviour |
 
-## Average Measurements
+## Measurement Method
 
-| Algorithm | Average runtime (ns) | Average memory (KB) |
-|---|---:|---:|
-| BFS Traversal | 39,124.71 | 263.61 |
-| Binary Search (Location Lookup) | 2,189.40 | 127.84 |
-| DFS Traversal | 40,259.89 | 241.86 |
-| Dijkstra Shortest Path | 657,127.62 | 342.11 |
-| Kruskal MST (Road Network) | 416,103.00 | 233.67 |
-| Linear Search (Resource Lookup) | 3,019.57 | 103.03 |
-| Merge Sort (Urgency) | 575,799.20 | 615.68 |
-| Quick Sort (Urgency) | 384,934.71 | 543.60 |
+The benchmark package uses a fixed seed, one untimed warm-up, and three timed repetitions for each measured algorithm family. The repository records the runtime means in `aggregated_timings.csv`, while the raw per-run timings remain in `raw_timings.csv`. The `metric` and `secondary_metric` columns are preserved for the algorithm-specific structural measurements such as load factor, height, and collision count; those values are interpreted in the benchmark README rather than treated as a universal benchmark claim.
 
 ## Observations
 
-Binary search has the lowest average runtime in the filtered performance dataset, followed by linear search. BFS and DFS have similar average runtime values, which is reasonable for traversal work over the same network scale. Sorting and shortest path algorithms show higher runtime and memory values than simple lookup algorithms.
+The benchmark output demonstrates the expected qualitative relationships for the implemented algorithms: search and traversal routines scale differently from sorting and graph algorithms, the hash table shows average constant-time behaviour under normal insertion but chain growth under deliberate collisions, and the tree experiments distinguish the skewed ordinary BST from the balanced red-black tree. These are measured repository observations, not general claims about every possible dataset or runtime environment.
 
-These observations come only from the supplied `algorithm_runs.csv` file. They should be described as measured dataset results, not universal algorithm benchmarks.
+The benchmark evidence is intentionally scoped to the project’s reproducible local execution and should be read as coursework-appropriate performance analysis rather than a universal algorithm benchmark.

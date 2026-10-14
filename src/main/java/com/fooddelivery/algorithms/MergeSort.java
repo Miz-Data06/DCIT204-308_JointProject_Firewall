@@ -33,12 +33,29 @@ public class MergeSort {
             RequestSortKey sortKey,
             boolean descending,
             EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, true);
+    }
+
+    SortResult sortWithoutTrace(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, false);
+    }
+
+    private SortResult sortInternal(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider,
+            boolean captureTrace) {
         RequestComparators.requireRequests(requests);
         RequestComparators.validateEstimatedProvider(sortKey, estimatedDeliveryTimeProvider);
         RequestComparators.validateEstimatedTimes(requests, sortKey, estimatedDeliveryTimeProvider);
         DeliveryRequest[] working = RequestComparators.copyToArray(requests);
         DeliveryRequest[] temporary = new DeliveryRequest[working.length];
-        CustomDynamicArray<SortTraceStep> trace = new CustomDynamicArray<>();
+        CustomDynamicArray<SortTraceStep> trace = captureTrace ? new CustomDynamicArray<>() : null;
         int operations = mergeSort(working, temporary, 0, working.length - 1, sortKey, descending,
                 estimatedDeliveryTimeProvider, trace);
         return new SortResult(SelectionSort.toCustomArray(working), operations, trace, false);
@@ -60,7 +77,9 @@ public class MergeSort {
         int operations = mergeSort(working, temporary, left, middle, sortKey, descending, provider, trace);
         operations += mergeSort(working, temporary, middle + 1, right, sortKey, descending, provider, trace);
         operations += merge(working, temporary, left, middle, right, sortKey, descending, provider);
-        trace.add(new SortTraceStep("merge", left, right, SelectionSort.snapshot(working)));
+        if (trace != null) {
+            trace.add(new SortTraceStep("merge", left, right, SelectionSort.snapshot(working)));
+        }
         return operations;
     }
 

@@ -1,14 +1,14 @@
 package com.fooddelivery.database.repository;
 
-import com.fooddelivery.database.DatabaseConnectionFactory;
-import com.fooddelivery.datastructures.linear.CustomDynamicArray;
-import com.fooddelivery.model.Rider;
-import com.fooddelivery.model.VehicleType;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import com.fooddelivery.database.DatabaseConnectionFactory;
+import com.fooddelivery.datastructures.linear.CustomDynamicArray;
+import com.fooddelivery.model.Rider;
+import com.fooddelivery.model.VehicleType;
 
 public class RiderRepository {
     private final DatabaseConnectionFactory connectionFactory;
@@ -37,6 +37,24 @@ public class RiderRepository {
         }
     }
 
+    public boolean reserveIfAvailable(String riderId) {
+        try (Connection connection = connectionFactory.openConnection()) {
+            return reserveIfAvailable(connection, riderId);
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not reserve rider", exception);
+        }
+    }
+
+    public boolean reserveIfAvailable(Connection connection, String riderId) {
+        String sql = "UPDATE riders SET available = 0 WHERE rider_id = ? AND available = 1";
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, riderId);
+            return statement.executeUpdate() == 1;
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not reserve rider", exception);
+        }
+    }
+
     public Rider findById(String riderId) {
         try (Connection connection = connectionFactory.openConnection();
              PreparedStatement statement = connection.prepareStatement("SELECT * FROM riders WHERE rider_id = ?")) {
@@ -60,6 +78,18 @@ public class RiderRepository {
             return riders;
         } catch (SQLException exception) {
             throw new IllegalStateException("Could not list riders", exception);
+        }
+    }
+
+    public void updateAvailability(String riderId, boolean available) {
+        String sql = "UPDATE riders SET available = ? WHERE rider_id = ?";
+        try (Connection connection = connectionFactory.openConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, available ? 1 : 0);
+            statement.setString(2, riderId);
+            statement.executeUpdate();
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not update rider availability", exception);
         }
     }
 

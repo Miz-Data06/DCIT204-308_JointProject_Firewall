@@ -4,7 +4,7 @@
 
 Final Maven test result:
 
-- Tests run: `511`
+- Tests run: `537`
 - Failures: `0`
 - Errors: `0`
 - Skipped: `0`

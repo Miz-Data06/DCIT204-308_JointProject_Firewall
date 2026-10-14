@@ -13,7 +13,7 @@
 ## Tests
 
 - [x] `mvn test` passes.
-- [x] Final test count is 511.
+- [x] Final test count is 537.
 - [x] There are 0 failures, 0 errors, and 0 skipped tests.
 - [x] `mvn package` passes.
 - [x] `git diff --check` passes.

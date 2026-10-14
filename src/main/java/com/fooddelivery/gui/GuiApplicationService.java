@@ -1,12 +1,24 @@
 package com.fooddelivery.gui;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+
 import com.fooddelivery.algorithms.DijkstraFastestRoute;
 import com.fooddelivery.algorithms.GreedyRiderAssignment;
 import com.fooddelivery.algorithms.PriorityScoreCalculator;
 import com.fooddelivery.algorithms.result.PriorityScoreResult;
 import com.fooddelivery.algorithms.result.RiderAssignmentResult;
 import com.fooddelivery.algorithms.result.RouteResult;
+import com.fooddelivery.database.DatabaseConfig;
+import com.fooddelivery.database.DatabaseConnectionFactory;
 import com.fooddelivery.database.mapper.DatasetLoadResult;
+import com.fooddelivery.database.repository.DeliveryRequestRepository;
+import com.fooddelivery.database.repository.RiderRepository;
 import com.fooddelivery.datastructures.graphs.CustomGraph;
 import com.fooddelivery.datastructures.linear.CustomDynamicArray;
 import com.fooddelivery.integration.DeliveryNetworkBuilder;
@@ -17,28 +29,29 @@ import com.fooddelivery.model.RequestStatus;
 import com.fooddelivery.model.Rider;
 import com.fooddelivery.model.Road;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
 public class GuiApplicationService {
     private final DatasetLoadResult dataset;
     private final CustomGraph graph;
+    private final DatabaseConnectionFactory databaseConnectionFactory;
     private final List<GuiOrderResult> recentRequests = new ArrayList<>();
     private int nextRequestNumber = 1;
 
     public GuiApplicationService() {
-        this(new GuiDataLoader().load());
+        this(new GuiDataLoader().load(), new DatabaseConnectionFactory(DatabaseConfig.defaultConfig()));
     }
 
     public GuiApplicationService(DatasetLoadResult dataset) {
+        this(dataset, null);
+    }
+
+    public GuiApplicationService(DatasetLoadResult dataset, DatabaseConnectionFactory databaseConnectionFactory) {
         if (dataset == null) {
             throw new IllegalArgumentException("Dataset must not be null");
         }
         this.dataset = dataset;
         this.graph = new DeliveryNetworkBuilder().build(dataset);
+        this.databaseConnectionFactory = databaseConnectionFactory;
+        this.nextRequestNumber = findNextRequestNumber(dataset);
     }
 
     public List<Location> getSourceLocations() {
@@ -188,9 +201,75 @@ public class GuiApplicationService {
             request.setStatus(RequestStatus.ASSIGNED);
         }
 
+        boolean assignmentPersisted = true;
+        if (databaseConnectionFactory != null) {
+            assignmentPersisted = persistOrder(request, assignment);
+        }
+
+        if (!assignmentPersisted && assignment != null && assignment.isAssigned()) {
+            request.setStatus(RequestStatus.PENDING);
+            assignment = new RiderAssignmentResult(false, null, assignment.getRoute(), assignment.getEvaluations());
+        } else if (assignment != null && assignment.isAssigned() && assignment.getSelectedRider() != null) {
+            markAssignedRiderUnavailable(assignment.getSelectedRider());
+        }
+
         GuiOrderResult result = toGuiResult(request, normalizeUrgencyLabel(urgencyLabel), route, assignment);
         recentRequests.add(0, result);
         return result;
+    }
+
+    private void markAssignedRiderUnavailable(Rider selectedRider) {
+        if (selectedRider == null) {
+            return;
+        }
+        selectedRider.setAvailable(false);
+        for (int i = 0; i < dataset.getRiders().size(); i++) {
+            Rider current = dataset.getRiders().get(i);
+            if (current.getRiderId().equals(selectedRider.getRiderId())) {
+                current.setAvailable(false);
+                break;
+            }
+        }
+    }
+
+    private boolean persistOrder(DeliveryRequest request, RiderAssignmentResult assignment) {
+        DeliveryRequestRepository requestRepository = new DeliveryRequestRepository(databaseConnectionFactory);
+        RiderRepository riderRepository = new RiderRepository(databaseConnectionFactory);
+
+        try (Connection connection = databaseConnectionFactory.openConnection()) {
+            connection.setAutoCommit(false);
+            try {
+                requestRepository.saveInTransaction(connection, request);
+
+                if (assignment != null && assignment.isAssigned() && assignment.getSelectedRider() != null) {
+                    boolean reserved = riderRepository.reserveIfAvailable(connection, assignment.getSelectedRider().getRiderId());
+                    if (!reserved) {
+                        connection.rollback();
+                        return false;
+                    }
+                }
+
+                connection.commit();
+                return true;
+            } catch (RuntimeException | SQLException exception) {
+                if (connection != null) {
+                    try {
+                        connection.rollback();
+                    } catch (SQLException rollbackException) {
+                        exception.addSuppressed(rollbackException);
+                    }
+                }
+                throw exception;
+            } finally {
+                try {
+                    connection.setAutoCommit(true);
+                } catch (SQLException exception) {
+                    throw new IllegalStateException("Could not reset database transaction state", exception);
+                }
+            }
+        } catch (SQLException exception) {
+            throw new IllegalStateException("Could not persist order and rider reservation atomically", exception);
+        }
     }
 
     private GuiOrderResult toGuiResult(
@@ -224,6 +303,25 @@ public class GuiApplicationService {
                 riderAssigned ? labelForRider(assignment.getSelectedRider()) : "No rider/resource assigned",
                 request.getTimeSubmitted(),
                 message);
+    }
+
+    private static int findNextRequestNumber(DatasetLoadResult dataset) {
+        int highest = 0;
+        CustomDynamicArray<DeliveryRequest> requests = dataset.getDeliveryRequests();
+        for (int i = 0; i < requests.size(); i++) {
+            String requestId = requests.get(i).getRequestId();
+            if (requestId != null && requestId.startsWith("GUI")) {
+                try {
+                    int requestNumber = Integer.parseInt(requestId.substring(3));
+                    if (requestNumber > highest) {
+                        highest = requestNumber;
+                    }
+                } catch (NumberFormatException ignored) {
+                    // Ignore malformed GUI IDs and continue from the last valid one.
+                }
+            }
+        }
+        return highest + 1;
     }
 
     private String nextRequestId() {

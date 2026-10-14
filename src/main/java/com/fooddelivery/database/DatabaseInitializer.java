@@ -23,6 +23,9 @@ public class DatabaseInitializer {
             statement.execute(DatabaseSchema.CREATE_DELIVERY_REQUESTS);
             statement.execute(DatabaseSchema.CREATE_ALGORITHM_RUNS);
             statement.execute(DatabaseSchema.CREATE_AUDIT_EVENTS);
+            for (String index : DatabaseSchema.CREATE_INDEXES) {
+                statement.execute(index);
+            }
         } catch (SQLException exception) {
             throw new IllegalStateException("Could not initialize database schema", exception);
         }

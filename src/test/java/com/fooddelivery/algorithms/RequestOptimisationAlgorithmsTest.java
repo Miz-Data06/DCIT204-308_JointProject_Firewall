@@ -97,6 +97,40 @@ class RequestOptimisationAlgorithmsTest {
     }
 
     @Test
+    void selectionAlgorithmsUseExactPriorityComparisonForNearEqualScores() {
+        CustomDynamicArray<DeliveryRequest> requests = AlgorithmTestFixtures.requests(
+                request("REQ-A", 1.00, 0.5),
+                request("REQ-B", 1.00, 0.5000000005));
+
+        assertMatchingSelection(requests, 1.00, "REQ-B", 0.5000000005, 100);
+    }
+
+    @Test
+    void selectionAlgorithmsApplySharedTieBreakersAtCapacityBoundaries() {
+        assertMatchingSelection(AlgorithmTestFixtures.requests(
+                request("REQ-C", 1.00, 5.0), request("REQ-A", 1.00, 5.0)),
+                1.00, "REQ-A", 5.0, 100);
+        assertMatchingSelection(AlgorithmTestFixtures.requests(
+                request("REQ-A", 1.00, 5.0), request("REQ-B", 1.25, 5.0)),
+                2.00, "REQ-A", 5.0, 100);
+        assertMatchingSelection(AlgorithmTestFixtures.requests(
+                request("REQ-A", 0.75, 2.0), request("REQ-B", 0.25, 1.0)),
+                1.00, "REQ-A,REQ-B", 3.0, 100);
+        assertMatchingSelection(AlgorithmTestFixtures.requests(request("REQ-A", 0.25, 1.0)),
+                0.00, "", 0.0, 0);
+    }
+
+    @Test
+    void selectionAlgorithmsAgreeAcrossDuplicateScoreInstances() {
+        assertMatchingSelection(AlgorithmTestFixtures.requests(
+                request("REQ-C", 2.00, 10.0), request("REQ-B", 1.00, 5.0), request("REQ-A", 1.00, 5.0)),
+                2.00, "REQ-A,REQ-B", 10.0, 200);
+        assertMatchingSelection(AlgorithmTestFixtures.requests(
+                request("REQ-D", 0.50, 4.0), request("REQ-A", 0.50, 4.0), request("REQ-B", 1.00, 8.0)),
+                1.00, "REQ-A,REQ-D", 8.0, 100);
+    }
+
+    @Test
     void optimisationRejectsInvalidValuesAndUnsafeDpTables() {
         CustomDynamicArray<DeliveryRequest> invalidPriority = AlgorithmTestFixtures.requests(request("REQ-A", 1.0, -1.0));
         CustomDynamicArray<DeliveryRequest> invalidCapacity = AlgorithmTestFixtures.requests(request("REQ-A", 1.234, 1.0));
@@ -166,6 +200,23 @@ class RequestOptimisationAlgorithmsTest {
         LocalDateTime now = LocalDateTime.of(2026, 1, 1, 8, 0);
         return new DeliveryRequest(id, "LOC-A", "LOC-B", "Food", 1, capacity,
                 now, now.plusHours(1), RequestStatus.PENDING, priority);
+    }
+
+    private static void assertMatchingSelection(
+            CustomDynamicArray<DeliveryRequest> requests,
+            double capacity,
+            String expectedIds,
+            double expectedPriority,
+            int expectedScaledCapacity) {
+        RequestSelectionResult brute = new BruteForceRequestSelection().select(requests, capacity);
+        RequestSelectionResult dynamicProgramming = new DynamicProgrammingKnapsack().select(requests, capacity);
+
+        assertEquals(expectedIds, ids(brute.getSelectedRequests()));
+        assertEquals(expectedIds, ids(dynamicProgramming.getSelectedRequests()));
+        assertEquals(expectedPriority, brute.getTotalPriority(), 0.0);
+        assertEquals(expectedPriority, dynamicProgramming.getTotalPriority(), 0.0);
+        assertEquals(expectedScaledCapacity, brute.getTotalScaledCapacityUsed());
+        assertEquals(expectedScaledCapacity, dynamicProgramming.getTotalScaledCapacityUsed());
     }
 
     private static DeliveryRequest requestAt(String id, String source, double capacity) {

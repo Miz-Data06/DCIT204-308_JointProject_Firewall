@@ -33,11 +33,28 @@ public class InsertionSort {
             RequestSortKey sortKey,
             boolean descending,
             EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, true);
+    }
+
+    SortResult sortWithoutTrace(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider) {
+        return sortInternal(requests, sortKey, descending, estimatedDeliveryTimeProvider, false);
+    }
+
+    private SortResult sortInternal(
+            CustomDynamicArray<DeliveryRequest> requests,
+            RequestSortKey sortKey,
+            boolean descending,
+            EstimatedDeliveryTimeProvider estimatedDeliveryTimeProvider,
+            boolean captureTrace) {
         RequestComparators.requireRequests(requests);
         RequestComparators.validateEstimatedProvider(sortKey, estimatedDeliveryTimeProvider);
         RequestComparators.validateEstimatedTimes(requests, sortKey, estimatedDeliveryTimeProvider);
         DeliveryRequest[] working = RequestComparators.copyToArray(requests);
-        CustomDynamicArray<SortTraceStep> trace = new CustomDynamicArray<>();
+        CustomDynamicArray<SortTraceStep> trace = captureTrace ? new CustomDynamicArray<>() : null;
         int operations = sortArray(working, sortKey, descending, estimatedDeliveryTimeProvider, trace);
         return new SortResult(SelectionSort.toCustomArray(working), operations, trace, false);
     }
@@ -61,7 +78,9 @@ public class InsertionSort {
                 j--;
             }
             working[j + 1] = current;
-            trace.add(new SortTraceStep("insert", i, j + 1, SelectionSort.snapshot(working)));
+            if (trace != null) {
+                trace.add(new SortTraceStep("insert", i, j + 1, SelectionSort.snapshot(working)));
+            }
         }
         return operations;
     }

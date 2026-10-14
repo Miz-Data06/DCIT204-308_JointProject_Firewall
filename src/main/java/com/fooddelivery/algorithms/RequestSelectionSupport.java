@@ -3,9 +3,9 @@ package com.fooddelivery.algorithms;
 import com.fooddelivery.datastructures.linear.CustomDynamicArray;
 import com.fooddelivery.model.DeliveryRequest;
 
-final class RequestSelectionSupport {
-    private static final double EPSILON = 0.000000001;
+import java.math.BigDecimal;
 
+final class RequestSelectionSupport {
     private RequestSelectionSupport() {
     }
 
@@ -26,7 +26,11 @@ final class RequestSelectionSupport {
             values[i] = request;
             scaledCapacities[i] = CapacityScaler.scale(request.getCapacityRequired());
         }
-        return new ValidatedRequests(values, scaledCapacities);
+        BigDecimal[] priorities = new BigDecimal[values.length];
+        for (int i = 0; i < values.length; i++) {
+            priorities[i] = BigDecimal.valueOf(values[i].getPriorityScore());
+        }
+        return new ValidatedRequests(values, scaledCapacities, priorities);
     }
 
     static CustomDynamicArray<DeliveryRequest> selectedFromMask(DeliveryRequest[] requests, long mask) {
@@ -52,14 +56,18 @@ final class RequestSelectionSupport {
         }
     }
 
+    /**
+     * Canonical exact ordering: larger priority total, then lower scaled capacity,
+     * then lexicographically smaller sorted request-ID sequence.
+     */
     static boolean isBetter(
-            double priority,
+            BigDecimal priority,
             int scaledCapacity,
-            CustomDynamicArray<DeliveryRequest> selected,
-            double bestPriority,
+            String[] selectedIds,
+            BigDecimal bestPriority,
             int bestScaledCapacity,
-            CustomDynamicArray<DeliveryRequest> bestSelected) {
-        int priorityComparison = compareDouble(priority, bestPriority);
+            String[] bestSelectedIds) {
+        int priorityComparison = priority.compareTo(bestPriority);
         if (priorityComparison > 0) {
             return true;
         }
@@ -72,7 +80,27 @@ final class RequestSelectionSupport {
         if (scaledCapacity > bestScaledCapacity) {
             return false;
         }
-        return compareRequestIdSequences(selected, bestSelected) < 0;
+        return compareRequestIdSequences(selectedIds, bestSelectedIds) < 0;
+    }
+
+    static String[] requestIds(CustomDynamicArray<DeliveryRequest> selected) {
+        String[] ids = new String[selected.size()];
+        for (int i = 0; i < selected.size(); i++) {
+            ids[i] = selected.get(i).getRequestId();
+        }
+        return ids;
+    }
+
+    static String[] insertRequestId(String[] ids, String requestId) {
+        String[] result = new String[ids.length + 1];
+        int insertionPoint = 0;
+        while (insertionPoint < ids.length && ids[insertionPoint].compareTo(requestId) <= 0) {
+            insertionPoint++;
+        }
+        System.arraycopy(ids, 0, result, 0, insertionPoint);
+        result[insertionPoint] = requestId;
+        System.arraycopy(ids, insertionPoint, result, insertionPoint + 1, ids.length - insertionPoint);
+        return result;
     }
 
     static double totalPriority(CustomDynamicArray<DeliveryRequest> selected) {
@@ -95,33 +123,28 @@ final class RequestSelectionSupport {
         }
     }
 
-    private static int compareDouble(double first, double second) {
-        if (Math.abs(first - second) <= EPSILON) {
-            return 0;
-        }
-        return first < second ? -1 : 1;
-    }
-
     private static int compareRequestIdSequences(
-            CustomDynamicArray<DeliveryRequest> first,
-            CustomDynamicArray<DeliveryRequest> second) {
-        int minimum = Math.min(first.size(), second.size());
+            String[] first,
+            String[] second) {
+        int minimum = Math.min(first.length, second.length);
         for (int i = 0; i < minimum; i++) {
-            int comparison = first.get(i).getRequestId().compareTo(second.get(i).getRequestId());
+            int comparison = first[i].compareTo(second[i]);
             if (comparison != 0) {
                 return comparison;
             }
         }
-        return Integer.compare(first.size(), second.size());
+        return Integer.compare(first.length, second.length);
     }
 
     static final class ValidatedRequests {
         private final DeliveryRequest[] requests;
         private final int[] scaledCapacities;
+        private final BigDecimal[] priorities;
 
-        private ValidatedRequests(DeliveryRequest[] requests, int[] scaledCapacities) {
+        private ValidatedRequests(DeliveryRequest[] requests, int[] scaledCapacities, BigDecimal[] priorities) {
             this.requests = requests;
             this.scaledCapacities = scaledCapacities;
+            this.priorities = priorities;
         }
 
         DeliveryRequest[] requests() {
@@ -130,6 +153,10 @@ final class RequestSelectionSupport {
 
         int[] scaledCapacities() {
             return scaledCapacities;
+        }
+
+        BigDecimal[] priorities() {
+            return priorities;
         }
     }
 }

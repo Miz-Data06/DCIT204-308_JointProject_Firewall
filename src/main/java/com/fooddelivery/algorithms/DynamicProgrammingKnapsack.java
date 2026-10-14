@@ -4,6 +4,8 @@ import com.fooddelivery.algorithms.result.RequestSelectionResult;
 import com.fooddelivery.datastructures.linear.CustomDynamicArray;
 import com.fooddelivery.model.DeliveryRequest;
 
+import java.math.BigDecimal;
+
 /**
  * 0/1 knapsack tabulation for request selection using exact capacity scaling.
  */
@@ -21,12 +23,15 @@ public class DynamicProgrammingKnapsack {
      * Preconditions: capacities are exactly convertible to integer units. Edge cases: empty and zero-capacity inputs
      * are valid. Input mutation: none. Time: O(nC). Space: O(nC), capped by MAX_DP_CELLS.
      * Food-delivery use: exact scalable capacity-constrained prioritisation for riders.
+     * Priority totals use exact BigDecimal.valueOf input values; ties prefer lower capacity,
+     * then lexicographically smaller sorted request IDs. Only result/table scores are rounded to double.
      */
     public RequestSelectionResult select(CustomDynamicArray<DeliveryRequest> requests, double riderCapacity) {
         int scaledLimit = CapacityScaler.scale(riderCapacity);
         RequestSelectionSupport.ValidatedRequests validated = RequestSelectionSupport.validateRequests(requests);
         DeliveryRequest[] values = validated.requests();
         int[] scaledCapacities = validated.scaledCapacities();
+        BigDecimal[] priorities = validated.priorities();
         long cells;
         try {
             cells = Math.multiplyExact((long) values.length + 1L, (long) scaledLimit + 1L);
@@ -37,28 +42,30 @@ public class DynamicProgrammingKnapsack {
             throw new IllegalArgumentException("DP table exceeds safety cell limit: " + MAX_DP_CELLS);
         }
 
-        double[][] table = new double[values.length + 1][scaledLimit + 1];
+        BigDecimal[][] table = new BigDecimal[values.length + 1][scaledLimit + 1];
         boolean[][] take = new boolean[values.length + 1][scaledLimit + 1];
         int[][] usedCapacities = new int[values.length + 1][scaledLimit + 1];
-        String[][] signatures = new String[values.length + 1][scaledLimit + 1];
+        String[][][] signatures = new String[values.length + 1][scaledLimit + 1][];
+        String[] emptySignature = new String[0];
         for (int capacity = 0; capacity <= scaledLimit; capacity++) {
-            signatures[0][capacity] = "";
+            table[0][capacity] = BigDecimal.ZERO;
+            signatures[0][capacity] = emptySignature;
         }
         for (int item = 1; item <= values.length; item++) {
             int requestIndex = item - 1;
             int requestCapacity = scaledCapacities[requestIndex];
-            double requestPriority = values[requestIndex].getPriorityScore();
+            BigDecimal requestPriority = priorities[requestIndex];
             for (int capacity = 0; capacity <= scaledLimit; capacity++) {
-                double best = table[item - 1][capacity];
+                BigDecimal best = table[item - 1][capacity];
                 int bestUsedCapacity = usedCapacities[item - 1][capacity];
-                String bestSignature = signatures[item - 1][capacity];
+                String[] bestSignature = signatures[item - 1][capacity];
                 if (requestCapacity <= capacity) {
-                    double candidate = table[item - 1][capacity - requestCapacity] + requestPriority;
+                    BigDecimal candidate = table[item - 1][capacity - requestCapacity].add(requestPriority);
                     int candidateUsedCapacity = usedCapacities[item - 1][capacity - requestCapacity] + requestCapacity;
-                    String candidateSignature = addRequestId(
+                    String[] candidateSignature = RequestSelectionSupport.insertRequestId(
                             signatures[item - 1][capacity - requestCapacity],
                             values[requestIndex].getRequestId());
-                    if (isBetterCell(candidate, candidateUsedCapacity, candidateSignature,
+                    if (RequestSelectionSupport.isBetter(candidate, candidateUsedCapacity, candidateSignature,
                             best, bestUsedCapacity, bestSignature)) {
                         best = candidate;
                         bestUsedCapacity = candidateUsedCapacity;
@@ -73,14 +80,14 @@ public class DynamicProgrammingKnapsack {
         }
 
         CustomDynamicArray<DeliveryRequest> bestSelected = new CustomDynamicArray<>();
-        double bestPriority = -1.0;
+        BigDecimal bestPriority = BigDecimal.ZERO;
         int bestCapacity = 0;
-        String bestSignature = "";
+        String[] bestSignature = emptySignature;
         for (int capacity = 0; capacity <= scaledLimit; capacity++) {
-            double candidatePriority = table[values.length][capacity];
+            BigDecimal candidatePriority = table[values.length][capacity];
             int candidateCapacity = usedCapacities[values.length][capacity];
-            String candidateSignature = signatures[values.length][capacity];
-            if (isBetterCell(candidatePriority, candidateCapacity, candidateSignature,
+            String[] candidateSignature = signatures[values.length][capacity];
+            if (RequestSelectionSupport.isBetter(candidatePriority, candidateCapacity, candidateSignature,
                     bestPriority, bestCapacity, bestSignature)) {
                 bestPriority = candidatePriority;
                 bestCapacity = candidateCapacity;
@@ -93,7 +100,7 @@ public class DynamicProgrammingKnapsack {
         trace.add("dpRows=" + (values.length + 1) + ", dpColumns=" + (scaledLimit + 1));
         trace.add("selectedScaledCapacity=" + bestCapacity);
         return new RequestSelectionResult(bestSelected, CapacityScaler.unscale(bestCapacity), bestCapacity,
-                Math.max(0.0, bestPriority), cells, values.length, scaledLimit, table, trace);
+                bestPriority.doubleValue(), cells, values.length, scaledLimit, toDoubleTable(table), trace);
     }
 
     private static CustomDynamicArray<DeliveryRequest> reconstruct(
@@ -115,71 +122,14 @@ public class DynamicProgrammingKnapsack {
         return selected;
     }
 
-    private static boolean isBetterCell(
-            double priority,
-            int scaledCapacity,
-            String signature,
-            double bestPriority,
-            int bestScaledCapacity,
-            String bestSignature) {
-        int priorityComparison = Double.compare(priority, bestPriority);
-        if (priorityComparison > 0) {
-            return true;
-        }
-        if (priorityComparison < 0) {
-            return false;
-        }
-        if (scaledCapacity < bestScaledCapacity) {
-            return true;
-        }
-        if (scaledCapacity > bestScaledCapacity) {
-            return false;
-        }
-        return compareSignatures(signature, bestSignature) < 0;
-    }
-
-    private static String addRequestId(String signature, String requestId) {
-        if (signature == null || signature.isEmpty()) {
-            return requestId;
-        }
-        String[] ids = signature.split(",");
-        StringBuilder builder = new StringBuilder();
-        boolean added = false;
-        for (String id : ids) {
-            if (!added && requestId.compareTo(id) < 0) {
-                appendId(builder, requestId);
-                added = true;
-            }
-            appendId(builder, id);
-        }
-        if (!added) {
-            appendId(builder, requestId);
-        }
-        return builder.toString();
-    }
-
-    private static int compareSignatures(String first, String second) {
-        String normalFirst = first == null ? "" : first;
-        String normalSecond = second == null ? "" : second;
-        if (normalFirst.isEmpty() || normalSecond.isEmpty()) {
-            return Integer.compare(normalFirst.length(), normalSecond.length());
-        }
-        String[] firstIds = normalFirst.split(",");
-        String[] secondIds = normalSecond.split(",");
-        int minimum = Math.min(firstIds.length, secondIds.length);
-        for (int i = 0; i < minimum; i++) {
-            int comparison = firstIds[i].compareTo(secondIds[i]);
-            if (comparison != 0) {
-                return comparison;
+    private static double[][] toDoubleTable(BigDecimal[][] table) {
+        double[][] result = new double[table.length][];
+        for (int row = 0; row < table.length; row++) {
+            result[row] = new double[table[row].length];
+            for (int column = 0; column < table[row].length; column++) {
+                result[row][column] = table[row][column].doubleValue();
             }
         }
-        return Integer.compare(firstIds.length, secondIds.length);
-    }
-
-    private static void appendId(StringBuilder builder, String requestId) {
-        if (builder.length() > 0) {
-            builder.append(',');
-        }
-        builder.append(requestId);
+        return result;
     }
 }

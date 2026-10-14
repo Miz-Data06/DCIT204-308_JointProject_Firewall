@@ -183,7 +183,7 @@ The database is recreated from CSV files and schema code. Generated files are bu
 The core data structures and algorithms use the project custom structures. Standard Java APIs are used only where suitable for language features, JDBC, paths, dates, tests, and small helper tasks.
 
 **What was the final test result?**  
-519 tests passed with no failures, errors, or skipped tests.
+537 tests passed with no failures, errors, or skipped tests.
 
 **What is still missing?**  
 The code and evidence are ready. Any extra school-specific report template or contribution declaration was not specified in provided local brief/handoff files.

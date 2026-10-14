@@ -41,12 +41,12 @@ Purpose: stores road connections used by routing and spanning tree algorithms.
 | `to_location_id` | Destination location id | Must match a `locations.csv` id |
 | `distance_km` | Road distance in kilometres | Parsed as decimal distance |
 | `base_travel_time_minutes` | Normal travel time in minutes | Mapped to normal travel time field |
-| `road_condition` | Enum-style road condition label | Preserved for documentation/database use |
+| `road_condition` | Enum-style road condition label | Retained in source CSV; the existing `Road` model/database stores the numeric multiplier only |
 | `road_condition_multiplier` | Road condition multiplier | Used with travel time to calculate effective time |
 
 Mapped class/table: `Road`; `roads`.
 
-Effective time transformation: `baseTravelTimeMinutes * roadConditionMultiplier`.
+CSV `base_travel_time_minutes` is persisted as `roads.normal_travel_time_minutes`; CSV `road_condition_multiplier` is persisted as `roads.road_condition_weight`. Effective time is their product. The canonical submission SQL uses the application column names, so import the CSV through the Java mapper rather than directly as table rows.
 
 ## `service_requests.csv`
 
@@ -76,9 +76,9 @@ Purpose: stores riders/resources used for greedy assignment and dispatch demos.
 |---|---|---|
 | `resource_id` | Rider/resource id such as `RES001` | Mapped to rider id |
 | `type` | Vehicle/resource type such as motorcycle | Mapped to `VehicleType` where supported |
-| `home_location_id` | Rider base location id | Used as current/home location |
-| `capacity` | Numeric carrying capacity | Parsed as numeric capacity |
-| `availability_status` | Availability state | Converted to rider availability boolean/status |
+| `home_location_id` | Rider base location id | Persisted as `riders.current_location_id` |
+| `capacity` | Numeric carrying capacity | Persisted as `riders.carrying_capacity` |
+| `availability_status` | Availability state | Persisted as `riders.available`: AVAILABLE=1; IN_USE/UNDER_MAINTENANCE=0; original labels remain in CSV |
 
 Mapped class/table: `Rider`; `riders`.
 

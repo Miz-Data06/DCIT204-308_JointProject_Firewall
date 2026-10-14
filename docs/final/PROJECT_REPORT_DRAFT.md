@@ -2,22 +2,22 @@
 
 ## Title Page Information
 
-**Project title:** Food Delivery System  
-**Course context:** DCIT 204/308 Joint Semester Project  
+**Project title:** Food Delivery System
+**Course context:** DCIT 204/308 Joint Semester Project
 **Team name:** Firewall
 **Repository:** https://github.com/Miz-Data06/DCIT204-308_JointProject_Firewall.git
-**Package name:** `com.fooddelivery`  
-**Main language and tools:** Java 17, Maven, JUnit 5, SQLite JDBC  
-**Final implementation branch:** `feature/application-integration`  
-**Final evidence commit before submission finalization:** `6b1746b docs: update final evidence for official dataset schema`
+**Package name:** `com.fooddelivery`
+**Main language and tools:** Java 17, Maven, JUnit 5, SQLite JDBC
+**Current working branch:** `main`
+**Current HEAD:** `bf1156a`
 
 Project brief and handoff files were not found locally apart from the README. Where a required detail was not available in the provided local materials, this report marks it as **Not specified in provided brief/handoff**.
 
 ## Project Overview
 
-The Food Delivery System is a Java-based service operations platform for handling delivery locations, roads, riders, delivery requests, database import, and application-driven demonstrations. It combines custom data structures, graph algorithms, request optimization algorithms, CSV dataset loading, a SQLite JDBC database layer, and a console fallback workflow.
+The Food Delivery System is a Java-based service operations platform for handling delivery locations, roads, riders, delivery requests, database import, and application-driven demonstrations. It combines custom data structures, graph algorithms, request optimization algorithms, CSV dataset loading, a SQLite JDBC database layer, a Swing GUI application workflow, and a console fallback workflow.
 
-The final system loads the dataset, imports it into SQLite, builds a custom weighted road graph, and runs demonstrations such as searching, sorting, BFS/DFS traversal, Dijkstra fastest routing, Prim and Kruskal MST, request selection, greedy rider assignment, and priority scoring.
+The final system loads the dataset, imports it into SQLite, builds a custom weighted road graph, and runs demonstrations through the Java Swing application and menu-driven console path. The interactive flow covers searching, sorting, BFS/DFS traversal, Dijkstra fastest routing, Prim and Kruskal MST, request selection, greedy rider assignment, and priority scoring.
 
 ## Problem Statement
 
@@ -84,6 +84,7 @@ The four core CSVs loaded into models are locations, roads, service requests, an
 | `com.fooddelivery.database.repository` | JDBC repositories |
 | `com.fooddelivery.database` | DB config, schema, initializer, importer |
 | `com.fooddelivery.integration` | Dataset-backed algorithm workflow services |
+| `com.fooddelivery.gui` | Swing GUI entry point and interactive application workflow |
 | `com.fooddelivery.Main` | Console menu entry point |
 
 ## Models
@@ -114,7 +115,9 @@ The system uses SQLite through plain JDBC. SQLite was chosen because the local R
 
 The database has four main tables: `locations`, `roads`, `riders`, and `delivery_requests`. Repositories use prepared statements for inserts and queries. Foreign keys connect roads, riders, and delivery requests to locations where practical.
 
-## Console Application Workflow
+## GUI and Console Application Workflow
+
+The project includes a Java Swing application entry point (`FoodDeliveryGuiApp` and `FoodDeliveryGui`) that is the primary interactive demonstration path for loading the dataset, creating requests, executing routing and assignment logic, and presenting the result in the user interface. The same services are also exposed through the console menu to provide a fallback workflow when GUI presentation is unavailable.
 
 The console application provides a simple menu:
 
@@ -129,13 +132,26 @@ The console application provides a simple menu:
 
 Invalid input is handled safely. The smoke run confirmed that all menu options execute and exit cleanly.
 
+## Evidence and Reference Map
+
+The repository keeps the evidence for the project in a small set of tracked locations:
+
+- `src/main/java/` contains the production implementation, including the GUI and database repository logic.
+- `src/test/java/` contains the JUnit verification suite and integration tests.
+- `evidence/` stores the console smoke and algorithm demo output used for validation.
+- `docs/final/` holds the technical report and supporting documentation.
+- `docs/final/submission/` holds the lecturer-facing cover sheet, data dictionary, performance analysis, and demo notes.
+- `docs/final/submission/performance/results/` contains the reproducible benchmark outputs and SVG charts generated from the measured algorithm timings.
+
+This report intentionally distinguishes verified repository evidence from unsupported or brief-specific claims. Where a detail is unavailable or not yet confirmed by the team, the wording remains conservative rather than speculative.
+
 ## Testing and Validation
 
 Final validation used `mvn test`, `mvn package`, `git diff --check`, a scripted console smoke run, and compliance scans.
 
 Final test result:
 
-- `511` tests run
+- `537` tests run
 - `0` failures
 - `0` errors
 - `0` skipped

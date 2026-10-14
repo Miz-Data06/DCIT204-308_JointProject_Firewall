@@ -43,17 +43,17 @@
 | Graph algorithms implemented | [x] | `src/main/java/com/fooddelivery/algorithms/`; `evidence/graph_traversal_demo_output.txt`; `evidence/dijkstra_demo_output.txt`; `evidence/mst_demo_output.txt` |
 | Greedy and DP algorithms | [x] | `src/main/java/com/fooddelivery/algorithms/`; `evidence/optimization_demo_output.txt` |
 | Correctness tests and trace tables | [x] | `src/test/java/com/fooddelivery/`; `docs/final/TRACE_TABLES_AND_DEMO_EVIDENCE.md`; `evidence/*.txt` |
-| Performance CSV and graphs | [x] | `data/algorithm_runs.csv`; `docs/final/submission/PERFORMANCE_ANALYSIS.md`; `docs/final/submission/performance_graphs/` |
-| Technical report | [x] | `docs/final/PROJECT_REPORT_DRAFT.md`; `docs/final/submission/Food_Delivery_System_Final_Report.docx`; `docs/final/submission/REPORT_CONVERSION_NOTES.md` |
-| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/final/submission/DEMO_SLIDES_OUTLINE.md`; To be prepared and presented by the team during final defense. |
+| Performance CSV and graphs | [x] | `docs/final/submission/performance/results/`; `docs/final/submission/performance/README.md`; `docs/final/submission/PERFORMANCE_ANALYSIS.md` |
+| Technical report | [x] | `docs/final/submission/Food_Delivery_System_Final_Report.md`; `.docx`; `.pdf`; `docs/final/submission/REPORT_CONVERSION_NOTES.md` |
+| Demo video / oral defense prepared | [ ] | `docs/final/DEMO_SCRIPT.md`; `docs/final/submission/DEMO_SLIDES_OUTLINE.md`; report DOCX/PDF exports are present, while the demonstration video remains outside this repository decision. |
 
 ## Repository Verification Snapshot
 
 | Check | Result |
 |---|---|
-| Branch before artifact generation | `feature/application-integration` |
-| Starting HEAD | `9134965 docs: add final project documentation package` |
-| Final tests | `mvn clean test` passed with 519 tests |
-| Final package | `mvn package` passed with 519 tests |
+| Branch before artifact generation | `main` |
+| Starting HEAD | `bf1156a` |
+| Final tests | `mvn clean test` passed with 537 tests |
+| Final package | `mvn package` passed with 537 tests |
 | Whitespace check | `git diff --check` passed |
 | Generated DB/JAR/target files tracked | None found |
